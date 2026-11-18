@@ -1,0 +1,67 @@
+{
+  "capturedAt": "2026-11-18T12:42:22.313Z",
+  "source": "cloudflare-ai-gateway",
+  "provider": "custom-minimax",
+  "modelId": "minimax/MiniMax-M3",
+  "modelName": "MiniMax-M3",
+  "schema": "messages-2023-06-01",
+  "endpoint": "anthropic/v1/messages",
+  "scenario": "error-context-length-exceeded",
+  "request": {
+    "method": "POST",
+    "gatewayPath": "custom-minimax/anthropic/v1/messages",
+    "headers": {
+      "content-type": "application/json",
+      "anthropic-version": "2023-06-01"
+    },
+    "body": {
+      "_omittedLargeRequestBodyBytes": 6800080,
+      "model": "MiniMax-M3",
+      "endpoint": "anthropic/v1/messages"
+    }
+  },
+  "response": {
+    "status": 400,
+    "ok": false,
+    "headers": {
+      "access-control-allow-origin": "*",
+      "alb_receive_time": "1795005735.976",
+      "alb_request_id": "0d27bdb872eb8ba7ed4608d6721d452c64d7aab2",
+      "cache-control": "max-age=0, no-cache, no-store",
+      "cf-aig-event-id": "01a1eead-e322-7474-9bf1-cb6e88fdaec5",
+      "cf-aig-log-id": "01a1eead-e322-7474-9bf1-cb6e88fdaec5",
+      "cf-aig-request-id": "01a1eead-e322-7474-9bf1-cb6e88fdaec5",
+      "cf-aig-step": "0",
+      "cf-aig-trace-id": "8b130a44a2a0499f97969baec94e2a5d",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5c70dcd086cae99-SJC",
+      "connection": "keep-alive",
+      "content-length": "169",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Wed, 18 Nov 2026 12:42:22 GMT",
+      "expires": "Wed, 18 Nov 2026 12:42:22 GMT",
+      "minimax-request-id": "8b2b181ea6c44c77f02f7ea9275a3e3f",
+      "pragma": "no-cache",
+      "server": "cloudflare",
+      "set-cookie": "__cf_bm=U65ldhdT4pTwcy3nyX0HLjhzg7rc.j2In6YqRLSa1t4-1795005733.923601-1.0.1.1-L7x6mbn1iAIQFZKep35giGR1AH4Ni1XQY99oZECZD0ZDintOspnN4z8_uAPDamFLqShry3gNWoen9vnRzbJr3PUs2.1qNMNB4LKLakOG6FlU1YMMt3UIsicL0xvPG8vI; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=gateway.ai.cloudflare.com; Expires=Wed, 18 Nov 2026 13:12:22 GMT",
+      "trace-id": "074cd02877957ed1f6a01db6e1fe5820",
+      "x-from": "ak",
+      "x-mm-request-id": "2038073520180704206_1795005738oo3464",
+      "x-session-id": "cef55bee4b44532a436ee179a031b455"
+    },
+    "isStream": false,
+    "rawBody": "{\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"invalid params, context window exceeds limit (2013)\"},\"request_id\":\"074cd02877957ed1f6a01db6e1fe5820\"}",
+    "parsedJson": {
+      "type": "error",
+      "error": {
+        "type": "invalid_request_error",
+        "message": "invalid params, context window exceeds limit (2013)"
+      },
+      "request_id": "074cd02877957ed1f6a01db6e1fe5820"
+    }
+  },
+  "analysis": {
+    "extractorUsage": null,
+    "estimatedCostCredits": null
+  }
+}

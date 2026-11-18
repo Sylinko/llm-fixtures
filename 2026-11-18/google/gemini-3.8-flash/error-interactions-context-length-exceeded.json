@@ -1,0 +1,59 @@
+{
+  "capturedAt": "2026-11-18T12:42:28.208Z",
+  "source": "cloudflare-ai-gateway",
+  "provider": "google-ai-studio",
+  "modelId": "google/gemini-3.8-flash",
+  "modelName": "gemini-3.8-flash",
+  "schema": "google-interactions-v1",
+  "endpoint": "v1/interactions",
+  "scenario": "error-interactions-context-length-exceeded",
+  "request": {
+    "method": "POST",
+    "gatewayPath": "google-ai-studio/v1/interactions",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "_omittedLargeRequestBodyBytes": 6800098,
+      "model": "gemini-3.8-flash",
+      "endpoint": "v1/interactions"
+    }
+  },
+  "response": {
+    "status": 400,
+    "ok": false,
+    "headers": {
+      "cf-aig-event-id": "01a1eeae-0e1e-761d-b855-d30d0fc3ac41",
+      "cf-aig-log-id": "01a1eeae-0e1e-761d-b855-d30d0fc3ac41",
+      "cf-aig-request-id": "01a1eeae-0e1e-761d-b855-d30d0fc3ac41",
+      "cf-aig-step": "0",
+      "cf-aig-trace-id": "d14036446b934f6da33d4bb4938f7f1f",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5c70e12ffe4fb50-SJC",
+      "connection": "keep-alive",
+      "content-encoding": "gzip",
+      "content-length": "131",
+      "content-type": "application/json; charset=UTF-8",
+      "date": "Wed, 18 Nov 2026 12:42:28 GMT",
+      "server": "cloudflare",
+      "server-timing": "gfet4t7; dur=1533",
+      "set-cookie": "__cf_bm=F7uAaEG.b9HUHMqkR85wqNAnsRXJOIuLT.EI1rT1ICo-1795005745.112744-1.0.1.1-IVVQ0ygR9gVnMmdWH6c0b5r1Zh8Qda8rvrTsH5qKZNloDPO0lrydm3xJ7w8m7csPAemInYIV8F2CO1tWp5dHyvCvxSNaowoZCjSoTsTSmjinJnrrA_8eqWOmjJBCfkjg; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=gateway.ai.cloudflare.com; Expires=Wed, 18 Nov 2026 13:12:28 GMT",
+      "vary": "Origin, X-Origin, Referer, accept-encoding",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "0"
+    },
+    "isStream": false,
+    "rawBody": "{\"error\":{\"message\":\"The input token count exceeds the maximum number of tokens allowed (1048576).\",\"code\":\"invalid_request\"}}",
+    "parsedJson": {
+      "error": {
+        "message": "The input token count exceeds the maximum number of tokens allowed (1048576).",
+        "code": "invalid_request"
+      }
+    }
+  },
+  "analysis": {
+    "extractorUsage": null,
+    "estimatedCostCredits": null
+  }
+}

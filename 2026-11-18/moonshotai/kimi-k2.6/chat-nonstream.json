@@ -1,0 +1,95 @@
+{
+  "capturedAt": "2026-11-18T11:55:21.080Z",
+  "source": "cloudflare-ai-gateway",
+  "provider": "custom-moonshotai",
+  "modelId": "moonshotai/kimi-k2.6",
+  "modelName": "kimi-k2.6",
+  "schema": "moonshot-chat-completions-v1",
+  "endpoint": "chat/completions",
+  "scenario": "chat-nonstream",
+  "request": {
+    "method": "POST",
+    "gatewayPath": "custom-moonshotai/chat/completions",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "model": "kimi-k2.6",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Reply with the exact string OK-CHAT."
+        }
+      ],
+      "max_tokens": 64,
+      "stream": false
+    }
+  },
+  "response": {
+    "status": 200,
+    "ok": true,
+    "headers": {
+      "cf-aig-cache-status": "MISS",
+      "cf-aig-event-id": "01a1ee82-e55a-75ba-a877-93cb35adc8ec",
+      "cf-aig-log-id": "01a1ee82-e55a-75ba-a877-93cb35adc8ec",
+      "cf-aig-request-id": "01a1ee82-e55a-75ba-a877-93cb35adc8ec",
+      "cf-aig-step": "0",
+      "cf-aig-trace-id": "00629b4e315c42ea9c2c52a53f448afd",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5c6c90efc00e8bb-SJC",
+      "connection": "keep-alive",
+      "content-encoding": "gzip",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Wed, 18 Nov 2026 11:55:21 GMT",
+      "msh-gid": "enterprise-tier-2",
+      "msh-org-id": "org-7bada5239a8244469f5a0c637b5374ce",
+      "msh-project-id": "proj-d89d6ed2cec74fbc80668112c4bb2058",
+      "msh-request-id": "ecc04505-e346-11f1-b675-72e6ffabba9d",
+      "msh-trace-mode": "on",
+      "msh-uid": "d5n4o0m00qrbsene6d00",
+      "server": "cloudflare",
+      "set-cookie": "__cf_bm=cCz3JrlyyHk9qp1HJEcbGXO4kbqzOS15vRVty2LbP2M-1795002918.2334552-1.0.1.1-2dX1UQJ7vg9q1EO_zVYA0491Oe_spNgiMLxjUrc6YghGCUoF5_oEuEVKu8LjKewbwxgM2ZbOjBdRlAsK.wayx5Z3d5.L0_UYvibw78GYxzuy5GVLa6vzV_L2RNkJzWU2; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=gateway.ai.cloudflare.com; Expires=Wed, 18 Nov 2026 12:25:21 GMT",
+      "strict-transport-security": "max-age=31536000; includeSubDomains",
+      "transfer-encoding": "chunked",
+      "vary": "Origin",
+      "x-internal-adhoc-canary": "881669075",
+      "x-msh-trace-id": "af2f6c1bd624ae5403ce9a3ec036c295"
+    },
+    "isStream": false,
+    "rawBody": "{\"id\":\"chatcmpl-6afd9226d3f31344de0ea577\",\"object\":\"chat.completion\",\"created\":1795002919,\"model\":\"kimi-k2.6\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"OK-CHAT\",\"reasoning_content\":\"The user wants me to reply with the exact string \\\"OK-CHAT\\\". Nothing more, nothing less. I should not add any punctuation, formatting, or explanation. Just the exact string.\\n\\nOK-CHAT\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":16,\"completion_tokens\":47,\"total_tokens\":63,\"completion_tokens_details\":{\"reasoning_tokens\":42}}}",
+    "parsedJson": {
+      "id": "chatcmpl-6afd9226d3f31344de0ea577",
+      "object": "chat.completion",
+      "created": 1795002919,
+      "model": "kimi-k2.6",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "OK-CHAT",
+            "reasoning_content": "The user wants me to reply with the exact string \"OK-CHAT\". Nothing more, nothing less. I should not add any punctuation, formatting, or explanation. Just the exact string.\n\nOK-CHAT"
+          },
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 16,
+        "completion_tokens": 47,
+        "total_tokens": 63,
+        "completion_tokens_details": {
+          "reasoning_tokens": 42
+        }
+      }
+    }
+  },
+  "analysis": {
+    "extractorUsage": {
+      "inputTokens": 16,
+      "outputTokens": 47,
+      "cacheRead": 0,
+      "cacheWrite": 0
+    },
+    "estimatedCostCredits": 20320
+  }
+}

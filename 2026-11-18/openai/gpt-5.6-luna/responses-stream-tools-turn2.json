@@ -1,0 +1,729 @@
+{
+  "capturedAt": "2026-11-18T12:01:22.125Z",
+  "source": "cloudflare-ai-gateway",
+  "provider": "openai",
+  "modelId": "openai/gpt-5.6-luna",
+  "modelName": "gpt-5.6-luna",
+  "schema": "responses-v1",
+  "endpoint": "responses",
+  "scenario": "responses-stream-tools-turn2",
+  "request": {
+    "method": "POST",
+    "gatewayPath": "openai/responses",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "model": "gpt-5.6-luna",
+      "input": [
+        {
+          "role": "user",
+          "content": "Call lookup_status for service='billing', then summarize the result."
+        },
+        {
+          "id": "fc_0f98e96a2dd539de016afd939047bc87d0bdec675e42773563",
+          "type": "function_call",
+          "status": "completed",
+          "arguments": "{\"service\":\"billing\"}",
+          "call_id": "call_HfC2vumVIdjhtzpRwSC69iJ5",
+          "name": "lookup_status"
+        },
+        {
+          "type": "function_call_output",
+          "call_id": "call_HfC2vumVIdjhtzpRwSC69iJ5",
+          "output": "{\"status\":\"healthy\",\"latencyMs\":12}"
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "name": "lookup_status",
+          "description": "Look up live service status by service code.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "service": {
+                "type": "string",
+                "description": "Service identifier such as billing or gateway"
+              }
+            },
+            "required": [
+              "service"
+            ],
+            "additionalProperties": false
+          }
+        }
+      ],
+      "reasoning": {
+        "effort": "low"
+      },
+      "max_output_tokens": 128,
+      "stream": true,
+      "store": false,
+      "service_tier": "default"
+    }
+  },
+  "response": {
+    "status": 200,
+    "ok": true,
+    "headers": {
+      "access-control-expose-headers": "X-Request-ID, Server-Timing-Total, X-OpenAI-Inference-Capacity-Reason, CF-Ray, CF-Ray",
+      "cf-aig-cache-status": "MISS",
+      "cf-aig-event-id": "01a1ee88-6f53-76b8-992f-6b2cad664fa3",
+      "cf-aig-log-id": "01a1ee88-6f53-76b8-992f-6b2cad664fa3",
+      "cf-aig-request-id": "01a1ee88-6f53-76b8-992f-6b2cad664fa3",
+      "cf-aig-step": "0",
+      "cf-aig-trace-id": "44692a5dd3814c6ea18e5856306616a2",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5c6d1ebbcb7e418-SJC",
+      "connection": "keep-alive",
+      "content-type": "text/event-stream; charset=utf-8",
+      "date": "Wed, 18 Nov 2026 12:01:21 GMT",
+      "openai-organization": "user-vnfct44mzu684h578pbwavmo",
+      "openai-processing-ms": "227",
+      "openai-project": "proj_0fVunpPWS4nTnpr04shNxqNR",
+      "openai-version": "2020-10-01",
+      "server": "cloudflare",
+      "set-cookie": "__cf_bm=IpKkjZ2LdXGWrK0l.FfnnT5mrnbKETglb2rw.rD3Qkw-1795003281.2343981-1.0.1.1-Es25JZ1EiYKs1sgAozg92nPs_yOmJOWvB06sMjBhY.qFiL2Vr5B.ePageINynJx152s8mQt9j5eanMfpucjRMq90Y2McvnZfm.JHMdl6vrrSnWO3vMKwxKg6HjizOFZ_; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=gateway.ai.cloudflare.com; Expires=Wed, 18 Nov 2026 12:31:21 GMT",
+      "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-ratelimit-limit-requests": "30000",
+      "x-ratelimit-limit-tokens": "180000000",
+      "x-ratelimit-remaining-requests": "29999",
+      "x-ratelimit-remaining-tokens": "179999457",
+      "x-ratelimit-reset-requests": "2ms",
+      "x-ratelimit-reset-tokens": "0s",
+      "x-request-id": "req_2d6dcd7c1d5a488ea18ac02ab8e434a3"
+    },
+    "isStream": true,
+    "rawBody": "event: response.created\ndata: {\"p\": \"4d4f985de8cb8aee\", \"type\":\"response.created\",\"response\":{\"id\":\"resp_0f98e96a2dd539de016afd93914f8487d0a1c80f637d26c479\",\"object\":\"response\",\"created_at\":1795003281,\"status\":\"in_progress\",\"access_programs\":null,\"background\":false,\"completed_at\":null,\"error\":null,\"frequency_penalty\":0.0,\"image\":{\"context_compression\":\"disabled\"},\"incomplete_details\":null,\"input_transformations\":[],\"instructions\":null,\"max_output_tokens\":128,\"max_tool_calls\":null,\"model\":\"gpt-5.6-luna\",\"moderation\":null,\"output\":[],\"parallel_tool_calls\":true,\"presence_penalty\":0.0,\"previous_response_id\":null,\"prompt_cache_key\":null,\"prompt_cache_retention\":\"24h\",\"reasoning\":{\"context\":\"all_turns\",\"effort\":\"low\",\"mode\":\"standard\",\"summary\":null},\"safety_identifier\":null,\"service_tier\":\"default\",\"store\":false,\"temperature\":1.0,\"text\":{\"format\":{\"type\":\"text\"},\"verbosity\":\"medium\"},\"tool_choice\":\"auto\",\"tool_usage\":{\"image_gen\":{\"input_tokens\":0,\"input_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"output_tokens\":0,\"output_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"total_tokens\":0},\"web_search\":{\"num_requests\":0}},\"tools\":[{\"type\":\"function\",\"description\":\"Look up live service status by service code.\",\"name\":\"lookup_status\",\"output_schema\":null,\"parameters\":{\"type\":\"object\",\"properties\":{\"service\":{\"type\":\"string\",\"description\":\"Service identifier such as billing or gateway\"}},\"required\":[\"service\"],\"additionalProperties\":false},\"strict\":true}],\"top_logprobs\":0,\"top_p\":0.98,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"metadata\":{}},\"sequence_number\":0}\n\nevent: response.in_progress\ndata: {\"p\": \"a99f80fad46ed5c\", \"type\":\"response.in_progress\",\"response\":{\"id\":\"resp_0f98e96a2dd539de016afd93914f8487d0a1c80f637d26c479\",\"object\":\"response\",\"created_at\":1795003281,\"status\":\"in_progress\",\"access_programs\":null,\"background\":false,\"completed_at\":null,\"error\":null,\"frequency_penalty\":0.0,\"image\":{\"context_compression\":\"disabled\"},\"incomplete_details\":null,\"input_transformations\":[],\"instructions\":null,\"max_output_tokens\":128,\"max_tool_calls\":null,\"model\":\"gpt-5.6-luna\",\"moderation\":null,\"output\":[],\"parallel_tool_calls\":true,\"presence_penalty\":0.0,\"previous_response_id\":null,\"prompt_cache_key\":null,\"prompt_cache_retention\":\"24h\",\"reasoning\":{\"context\":\"all_turns\",\"effort\":\"low\",\"mode\":\"standard\",\"summary\":null},\"safety_identifier\":null,\"service_tier\":\"default\",\"store\":false,\"temperature\":1.0,\"text\":{\"format\":{\"type\":\"text\"},\"verbosity\":\"medium\"},\"tool_choice\":\"auto\",\"tool_usage\":{\"image_gen\":{\"input_tokens\":0,\"input_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"output_tokens\":0,\"output_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"total_tokens\":0},\"web_search\":{\"num_requests\":0}},\"tools\":[{\"type\":\"function\",\"description\":\"Look up live service status by service code.\",\"name\":\"lookup_status\",\"output_schema\":null,\"parameters\":{\"type\":\"object\",\"properties\":{\"service\":{\"type\":\"string\",\"description\":\"Service identifier such as billing or gateway\"}},\"required\":[\"service\"],\"additionalProperties\":false},\"strict\":true}],\"top_logprobs\":0,\"top_p\":0.98,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"metadata\":{}},\"sequence_number\":1}\n\nevent: response.output_item.added\ndata: {\"p\": \"d6\", \"type\":\"response.output_item.added\",\"item\":{\"id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"type\":\"message\",\"status\":\"in_progress\",\"content\":[],\"phase\":\"final_answer\",\"role\":\"assistant\"},\"output_index\":0,\"sequence_number\":2}\n\nevent: response.content_part.added\ndata: {\"p\": \"40d1f6d14e04\", \"type\":\"response.content_part.added\",\"content_index\":0,\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"output_index\":0,\"part\":{\"type\":\"output_text\",\"annotations\":[],\"logprobs\":[],\"text\":\"\"},\"sequence_number\":3}\n\nevent: response.output_text.delta\ndata: {\"p\": \"cdef390efa7b97b2\", \"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"Billing\",\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"obfuscation\":\"UuHBFE7Nw\",\"output_index\":0,\"sequence_number\":4}\n\nevent: response.output_text.delta\ndata: {\"p\": \"8164774\", \"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\" service\",\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"obfuscation\":\"Dm1afDWT\",\"output_index\":0,\"sequence_number\":5}\n\nevent: response.output_text.delta\ndata: {\"p\": \"614426f003e\", \"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\" is\",\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"obfuscation\":\"rcHkNL8yCKRuL\",\"output_index\":0,\"sequence_number\":6}\n\nevent: response.output_text.delta\ndata: {\"p\": \"e7a80\", \"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\" healthy\",\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"obfuscation\":\"u4lGE7nQ\",\"output_index\":0,\"sequence_number\":7}\n\nevent: response.output_text.delta\ndata: {\"p\": \"20\", \"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\",\",\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"obfuscation\":\"OWCC9Urjk5ByNy5\",\"output_index\":0,\"sequence_number\":8}\n\nevent: response.output_text.delta\ndata: {\"p\": \"0cd\", \"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\" with\",\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"obfuscation\":\"nfgXgoXiE35\",\"output_index\":0,\"sequence_number\":9}\n\nevent: response.output_text.delta\ndata: {\"p\": \"c81005d\", \"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\" a\",\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"obfuscation\":\"GHAIGLkOJHhOJX\",\"output_index\":0,\"sequence_number\":10}\n\nevent: response.output_text.delta\ndata: {\"p\": \"d0df5e1084ae1\", \"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\" latency\",\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"obfuscation\":\"ejjnLRL0\",\"output_index\":0,\"sequence_number\":11}\n\nevent: response.output_text.delta\ndata: {\"p\": \"def65fb46d5c\", \"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\" of\",\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"obfuscation\":\"gDpHWndr5BJ6G\",\"output_index\":0,\"sequence_number\":12}\n\nevent: response.output_text.delta\ndata: {\"p\": \"57b412246b50f\", \"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\" \",\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"obfuscation\":\"ZVIRJjHl9EcThYJ\",\"output_index\":0,\"sequence_number\":13}\n\nevent: response.output_text.delta\ndata: {\"p\": \"9d\", \"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"12\",\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"obfuscation\":\"qcoWPJeVPO41Ci\",\"output_index\":0,\"sequence_number\":14}\n\nevent: response.output_text.delta\ndata: {\"p\": \"f\", \"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\" ms\",\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"obfuscation\":\"g62rkDgENUJNJ\",\"output_index\":0,\"sequence_number\":15}\n\nevent: response.output_text.delta\ndata: {\"p\": \"37ec3\", \"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\".\",\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"obfuscation\":\"MvaV4tD60UWN4gc\",\"output_index\":0,\"sequence_number\":16}\n\nevent: response.output_text.done\ndata: {\"p\": \"70704\", \"type\":\"response.output_text.done\",\"content_index\":0,\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"output_index\":0,\"sequence_number\":17,\"text\":\"Billing service is healthy, with a latency of 12 ms.\"}\n\nevent: response.content_part.done\ndata: {\"p\": \"0c12696fa400ee\", \"type\":\"response.content_part.done\",\"content_index\":0,\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"output_index\":0,\"part\":{\"type\":\"output_text\",\"annotations\":[],\"logprobs\":[],\"text\":\"Billing service is healthy, with a latency of 12 ms.\"},\"sequence_number\":18}\n\nevent: response.output_item.done\ndata: {\"p\": \"fc5469ee\", \"type\":\"response.output_item.done\",\"item\":{\"id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"type\":\"message\",\"status\":\"completed\",\"content\":[{\"type\":\"output_text\",\"annotations\":[],\"logprobs\":[],\"text\":\"Billing service is healthy, with a latency of 12 ms.\"}],\"phase\":\"final_answer\",\"role\":\"assistant\"},\"output_index\":0,\"sequence_number\":19}\n\nevent: response.completed\ndata: {\"p\": \"63da7d3\", \"type\":\"response.completed\",\"response\":{\"id\":\"resp_0f98e96a2dd539de016afd93914f8487d0a1c80f637d26c479\",\"object\":\"response\",\"created_at\":1795003281,\"status\":\"completed\",\"access_programs\":null,\"background\":false,\"completed_at\":1795003281,\"error\":null,\"frequency_penalty\":0.0,\"image\":{\"context_compression\":\"disabled\"},\"incomplete_details\":null,\"input_transformations\":[],\"instructions\":null,\"max_output_tokens\":128,\"max_tool_calls\":null,\"model\":\"gpt-5.6-luna\",\"moderation\":null,\"output\":[{\"id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"type\":\"message\",\"status\":\"completed\",\"content\":[{\"type\":\"output_text\",\"annotations\":[],\"logprobs\":[],\"text\":\"Billing service is healthy, with a latency of 12 ms.\"}],\"phase\":\"final_answer\",\"role\":\"assistant\"}],\"parallel_tool_calls\":true,\"presence_penalty\":0.0,\"previous_response_id\":null,\"prompt_cache_key\":null,\"prompt_cache_retention\":\"24h\",\"reasoning\":{\"context\":\"all_turns\",\"effort\":\"low\",\"mode\":\"standard\",\"summary\":null},\"safety_identifier\":null,\"service_tier\":\"default\",\"store\":false,\"temperature\":1.0,\"text\":{\"format\":{\"type\":\"text\"},\"verbosity\":\"medium\"},\"tool_choice\":\"auto\",\"tool_usage\":{\"image_gen\":{\"input_tokens\":0,\"input_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"output_tokens\":0,\"output_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"total_tokens\":0},\"web_search\":{\"num_requests\":0}},\"tools\":[{\"type\":\"function\",\"description\":\"Look up live service status by service code.\",\"name\":\"lookup_status\",\"output_schema\":null,\"parameters\":{\"type\":\"object\",\"properties\":{\"service\":{\"type\":\"string\",\"description\":\"Service identifier such as billing or gateway\"}},\"required\":[\"service\"],\"additionalProperties\":false},\"strict\":true}],\"top_logprobs\":0,\"top_p\":0.98,\"truncation\":\"disabled\",\"usage\":{\"input_tokens\":107,\"input_tokens_details\":{\"cache_write_tokens\":0,\"cache_write_tokens_details\":{\"ttl_12h_tokens\":0,\"ttl_30m_tokens\":0},\"cached_tokens\":0},\"output_tokens\":17,\"output_tokens_details\":{\"reasoning_tokens\":0},\"total_tokens\":124},\"user\":null,\"metadata\":{}},\"sequence_number\":20}\n\n",
+    "sseFrames": [
+      {
+        "event": "response.created",
+        "data": "{\"p\": \"4d4f985de8cb8aee\", \"type\":\"response.created\",\"response\":{\"id\":\"resp_0f98e96a2dd539de016afd93914f8487d0a1c80f637d26c479\",\"object\":\"response\",\"created_at\":1795003281,\"status\":\"in_progress\",\"access_programs\":null,\"background\":false,\"completed_at\":null,\"error\":null,\"frequency_penalty\":0.0,\"image\":{\"context_compression\":\"disabled\"},\"incomplete_details\":null,\"input_transformations\":[],\"instructions\":null,\"max_output_tokens\":128,\"max_tool_calls\":null,\"model\":\"gpt-5.6-luna\",\"moderation\":null,\"output\":[],\"parallel_tool_calls\":true,\"presence_penalty\":0.0,\"previous_response_id\":null,\"prompt_cache_key\":null,\"prompt_cache_retention\":\"24h\",\"reasoning\":{\"context\":\"all_turns\",\"effort\":\"low\",\"mode\":\"standard\",\"summary\":null},\"safety_identifier\":null,\"service_tier\":\"default\",\"store\":false,\"temperature\":1.0,\"text\":{\"format\":{\"type\":\"text\"},\"verbosity\":\"medium\"},\"tool_choice\":\"auto\",\"tool_usage\":{\"image_gen\":{\"input_tokens\":0,\"input_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"output_tokens\":0,\"output_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"total_tokens\":0},\"web_search\":{\"num_requests\":0}},\"tools\":[{\"type\":\"function\",\"description\":\"Look up live service status by service code.\",\"name\":\"lookup_status\",\"output_schema\":null,\"parameters\":{\"type\":\"object\",\"properties\":{\"service\":{\"type\":\"string\",\"description\":\"Service identifier such as billing or gateway\"}},\"required\":[\"service\"],\"additionalProperties\":false},\"strict\":true}],\"top_logprobs\":0,\"top_p\":0.98,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"metadata\":{}},\"sequence_number\":0}",
+        "parsed": {
+          "p": "4d4f985de8cb8aee",
+          "type": "response.created",
+          "response": {
+            "id": "resp_0f98e96a2dd539de016afd93914f8487d0a1c80f637d26c479",
+            "object": "response",
+            "created_at": 1795003281,
+            "status": "in_progress",
+            "access_programs": null,
+            "background": false,
+            "completed_at": null,
+            "error": null,
+            "frequency_penalty": 0,
+            "image": {
+              "context_compression": "disabled"
+            },
+            "incomplete_details": null,
+            "input_transformations": [],
+            "instructions": null,
+            "max_output_tokens": 128,
+            "max_tool_calls": null,
+            "model": "gpt-5.6-luna",
+            "moderation": null,
+            "output": [],
+            "parallel_tool_calls": true,
+            "presence_penalty": 0,
+            "previous_response_id": null,
+            "prompt_cache_key": null,
+            "prompt_cache_retention": "24h",
+            "reasoning": {
+              "context": "all_turns",
+              "effort": "low",
+              "mode": "standard",
+              "summary": null
+            },
+            "safety_identifier": null,
+            "service_tier": "default",
+            "store": false,
+            "temperature": 1,
+            "text": {
+              "format": {
+                "type": "text"
+              },
+              "verbosity": "medium"
+            },
+            "tool_choice": "auto",
+            "tool_usage": {
+              "image_gen": {
+                "input_tokens": 0,
+                "input_tokens_details": {
+                  "image_tokens": 0,
+                  "text_tokens": 0
+                },
+                "output_tokens": 0,
+                "output_tokens_details": {
+                  "image_tokens": 0,
+                  "text_tokens": 0
+                },
+                "total_tokens": 0
+              },
+              "web_search": {
+                "num_requests": 0
+              }
+            },
+            "tools": [
+              {
+                "type": "function",
+                "description": "Look up live service status by service code.",
+                "name": "lookup_status",
+                "output_schema": null,
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "service": {
+                      "type": "string",
+                      "description": "Service identifier such as billing or gateway"
+                    }
+                  },
+                  "required": [
+                    "service"
+                  ],
+                  "additionalProperties": false
+                },
+                "strict": true
+              }
+            ],
+            "top_logprobs": 0,
+            "top_p": 0.98,
+            "truncation": "disabled",
+            "usage": null,
+            "user": null,
+            "metadata": {}
+          },
+          "sequence_number": 0
+        }
+      },
+      {
+        "event": "response.in_progress",
+        "data": "{\"p\": \"a99f80fad46ed5c\", \"type\":\"response.in_progress\",\"response\":{\"id\":\"resp_0f98e96a2dd539de016afd93914f8487d0a1c80f637d26c479\",\"object\":\"response\",\"created_at\":1795003281,\"status\":\"in_progress\",\"access_programs\":null,\"background\":false,\"completed_at\":null,\"error\":null,\"frequency_penalty\":0.0,\"image\":{\"context_compression\":\"disabled\"},\"incomplete_details\":null,\"input_transformations\":[],\"instructions\":null,\"max_output_tokens\":128,\"max_tool_calls\":null,\"model\":\"gpt-5.6-luna\",\"moderation\":null,\"output\":[],\"parallel_tool_calls\":true,\"presence_penalty\":0.0,\"previous_response_id\":null,\"prompt_cache_key\":null,\"prompt_cache_retention\":\"24h\",\"reasoning\":{\"context\":\"all_turns\",\"effort\":\"low\",\"mode\":\"standard\",\"summary\":null},\"safety_identifier\":null,\"service_tier\":\"default\",\"store\":false,\"temperature\":1.0,\"text\":{\"format\":{\"type\":\"text\"},\"verbosity\":\"medium\"},\"tool_choice\":\"auto\",\"tool_usage\":{\"image_gen\":{\"input_tokens\":0,\"input_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"output_tokens\":0,\"output_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"total_tokens\":0},\"web_search\":{\"num_requests\":0}},\"tools\":[{\"type\":\"function\",\"description\":\"Look up live service status by service code.\",\"name\":\"lookup_status\",\"output_schema\":null,\"parameters\":{\"type\":\"object\",\"properties\":{\"service\":{\"type\":\"string\",\"description\":\"Service identifier such as billing or gateway\"}},\"required\":[\"service\"],\"additionalProperties\":false},\"strict\":true}],\"top_logprobs\":0,\"top_p\":0.98,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"metadata\":{}},\"sequence_number\":1}",
+        "parsed": {
+          "p": "a99f80fad46ed5c",
+          "type": "response.in_progress",
+          "response": {
+            "id": "resp_0f98e96a2dd539de016afd93914f8487d0a1c80f637d26c479",
+            "object": "response",
+            "created_at": 1795003281,
+            "status": "in_progress",
+            "access_programs": null,
+            "background": false,
+            "completed_at": null,
+            "error": null,
+            "frequency_penalty": 0,
+            "image": {
+              "context_compression": "disabled"
+            },
+            "incomplete_details": null,
+            "input_transformations": [],
+            "instructions": null,
+            "max_output_tokens": 128,
+            "max_tool_calls": null,
+            "model": "gpt-5.6-luna",
+            "moderation": null,
+            "output": [],
+            "parallel_tool_calls": true,
+            "presence_penalty": 0,
+            "previous_response_id": null,
+            "prompt_cache_key": null,
+            "prompt_cache_retention": "24h",
+            "reasoning": {
+              "context": "all_turns",
+              "effort": "low",
+              "mode": "standard",
+              "summary": null
+            },
+            "safety_identifier": null,
+            "service_tier": "default",
+            "store": false,
+            "temperature": 1,
+            "text": {
+              "format": {
+                "type": "text"
+              },
+              "verbosity": "medium"
+            },
+            "tool_choice": "auto",
+            "tool_usage": {
+              "image_gen": {
+                "input_tokens": 0,
+                "input_tokens_details": {
+                  "image_tokens": 0,
+                  "text_tokens": 0
+                },
+                "output_tokens": 0,
+                "output_tokens_details": {
+                  "image_tokens": 0,
+                  "text_tokens": 0
+                },
+                "total_tokens": 0
+              },
+              "web_search": {
+                "num_requests": 0
+              }
+            },
+            "tools": [
+              {
+                "type": "function",
+                "description": "Look up live service status by service code.",
+                "name": "lookup_status",
+                "output_schema": null,
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "service": {
+                      "type": "string",
+                      "description": "Service identifier such as billing or gateway"
+                    }
+                  },
+                  "required": [
+                    "service"
+                  ],
+                  "additionalProperties": false
+                },
+                "strict": true
+              }
+            ],
+            "top_logprobs": 0,
+            "top_p": 0.98,
+            "truncation": "disabled",
+            "usage": null,
+            "user": null,
+            "metadata": {}
+          },
+          "sequence_number": 1
+        }
+      },
+      {
+        "event": "response.output_item.added",
+        "data": "{\"p\": \"d6\", \"type\":\"response.output_item.added\",\"item\":{\"id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"type\":\"message\",\"status\":\"in_progress\",\"content\":[],\"phase\":\"final_answer\",\"role\":\"assistant\"},\"output_index\":0,\"sequence_number\":2}",
+        "parsed": {
+          "p": "d6",
+          "type": "response.output_item.added",
+          "item": {
+            "id": "msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735",
+            "type": "message",
+            "status": "in_progress",
+            "content": [],
+            "phase": "final_answer",
+            "role": "assistant"
+          },
+          "output_index": 0,
+          "sequence_number": 2
+        }
+      },
+      {
+        "event": "response.content_part.added",
+        "data": "{\"p\": \"40d1f6d14e04\", \"type\":\"response.content_part.added\",\"content_index\":0,\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"output_index\":0,\"part\":{\"type\":\"output_text\",\"annotations\":[],\"logprobs\":[],\"text\":\"\"},\"sequence_number\":3}",
+        "parsed": {
+          "p": "40d1f6d14e04",
+          "type": "response.content_part.added",
+          "content_index": 0,
+          "item_id": "msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735",
+          "output_index": 0,
+          "part": {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": ""
+          },
+          "sequence_number": 3
+        }
+      },
+      {
+        "event": "response.output_text.delta",
+        "data": "{\"p\": \"cdef390efa7b97b2\", \"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"Billing\",\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"obfuscation\":\"UuHBFE7Nw\",\"output_index\":0,\"sequence_number\":4}",
+        "parsed": {
+          "p": "cdef390efa7b97b2",
+          "type": "response.output_text.delta",
+          "content_index": 0,
+          "delta": "Billing",
+          "item_id": "msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735",
+          "logprobs": [],
+          "obfuscation": "UuHBFE7Nw",
+          "output_index": 0,
+          "sequence_number": 4
+        }
+      },
+      {
+        "event": "response.output_text.delta",
+        "data": "{\"p\": \"8164774\", \"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\" service\",\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"obfuscation\":\"Dm1afDWT\",\"output_index\":0,\"sequence_number\":5}",
+        "parsed": {
+          "p": "8164774",
+          "type": "response.output_text.delta",
+          "content_index": 0,
+          "delta": " service",
+          "item_id": "msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735",
+          "logprobs": [],
+          "obfuscation": "Dm1afDWT",
+          "output_index": 0,
+          "sequence_number": 5
+        }
+      },
+      {
+        "event": "response.output_text.delta",
+        "data": "{\"p\": \"614426f003e\", \"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\" is\",\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"obfuscation\":\"rcHkNL8yCKRuL\",\"output_index\":0,\"sequence_number\":6}",
+        "parsed": {
+          "p": "614426f003e",
+          "type": "response.output_text.delta",
+          "content_index": 0,
+          "delta": " is",
+          "item_id": "msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735",
+          "logprobs": [],
+          "obfuscation": "rcHkNL8yCKRuL",
+          "output_index": 0,
+          "sequence_number": 6
+        }
+      },
+      {
+        "event": "response.output_text.delta",
+        "data": "{\"p\": \"e7a80\", \"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\" healthy\",\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"obfuscation\":\"u4lGE7nQ\",\"output_index\":0,\"sequence_number\":7}",
+        "parsed": {
+          "p": "e7a80",
+          "type": "response.output_text.delta",
+          "content_index": 0,
+          "delta": " healthy",
+          "item_id": "msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735",
+          "logprobs": [],
+          "obfuscation": "u4lGE7nQ",
+          "output_index": 0,
+          "sequence_number": 7
+        }
+      },
+      {
+        "event": "response.output_text.delta",
+        "data": "{\"p\": \"20\", \"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\",\",\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"obfuscation\":\"OWCC9Urjk5ByNy5\",\"output_index\":0,\"sequence_number\":8}",
+        "parsed": {
+          "p": "20",
+          "type": "response.output_text.delta",
+          "content_index": 0,
+          "delta": ",",
+          "item_id": "msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735",
+          "logprobs": [],
+          "obfuscation": "OWCC9Urjk5ByNy5",
+          "output_index": 0,
+          "sequence_number": 8
+        }
+      },
+      {
+        "event": "response.output_text.delta",
+        "data": "{\"p\": \"0cd\", \"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\" with\",\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"obfuscation\":\"nfgXgoXiE35\",\"output_index\":0,\"sequence_number\":9}",
+        "parsed": {
+          "p": "0cd",
+          "type": "response.output_text.delta",
+          "content_index": 0,
+          "delta": " with",
+          "item_id": "msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735",
+          "logprobs": [],
+          "obfuscation": "nfgXgoXiE35",
+          "output_index": 0,
+          "sequence_number": 9
+        }
+      },
+      {
+        "event": "response.output_text.delta",
+        "data": "{\"p\": \"c81005d\", \"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\" a\",\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"obfuscation\":\"GHAIGLkOJHhOJX\",\"output_index\":0,\"sequence_number\":10}",
+        "parsed": {
+          "p": "c81005d",
+          "type": "response.output_text.delta",
+          "content_index": 0,
+          "delta": " a",
+          "item_id": "msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735",
+          "logprobs": [],
+          "obfuscation": "GHAIGLkOJHhOJX",
+          "output_index": 0,
+          "sequence_number": 10
+        }
+      },
+      {
+        "event": "response.output_text.delta",
+        "data": "{\"p\": \"d0df5e1084ae1\", \"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\" latency\",\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"obfuscation\":\"ejjnLRL0\",\"output_index\":0,\"sequence_number\":11}",
+        "parsed": {
+          "p": "d0df5e1084ae1",
+          "type": "response.output_text.delta",
+          "content_index": 0,
+          "delta": " latency",
+          "item_id": "msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735",
+          "logprobs": [],
+          "obfuscation": "ejjnLRL0",
+          "output_index": 0,
+          "sequence_number": 11
+        }
+      },
+      {
+        "event": "response.output_text.delta",
+        "data": "{\"p\": \"def65fb46d5c\", \"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\" of\",\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"obfuscation\":\"gDpHWndr5BJ6G\",\"output_index\":0,\"sequence_number\":12}",
+        "parsed": {
+          "p": "def65fb46d5c",
+          "type": "response.output_text.delta",
+          "content_index": 0,
+          "delta": " of",
+          "item_id": "msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735",
+          "logprobs": [],
+          "obfuscation": "gDpHWndr5BJ6G",
+          "output_index": 0,
+          "sequence_number": 12
+        }
+      },
+      {
+        "event": "response.output_text.delta",
+        "data": "{\"p\": \"57b412246b50f\", \"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\" \",\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"obfuscation\":\"ZVIRJjHl9EcThYJ\",\"output_index\":0,\"sequence_number\":13}",
+        "parsed": {
+          "p": "57b412246b50f",
+          "type": "response.output_text.delta",
+          "content_index": 0,
+          "delta": " ",
+          "item_id": "msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735",
+          "logprobs": [],
+          "obfuscation": "ZVIRJjHl9EcThYJ",
+          "output_index": 0,
+          "sequence_number": 13
+        }
+      },
+      {
+        "event": "response.output_text.delta",
+        "data": "{\"p\": \"9d\", \"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\"12\",\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"obfuscation\":\"qcoWPJeVPO41Ci\",\"output_index\":0,\"sequence_number\":14}",
+        "parsed": {
+          "p": "9d",
+          "type": "response.output_text.delta",
+          "content_index": 0,
+          "delta": "12",
+          "item_id": "msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735",
+          "logprobs": [],
+          "obfuscation": "qcoWPJeVPO41Ci",
+          "output_index": 0,
+          "sequence_number": 14
+        }
+      },
+      {
+        "event": "response.output_text.delta",
+        "data": "{\"p\": \"f\", \"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\" ms\",\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"obfuscation\":\"g62rkDgENUJNJ\",\"output_index\":0,\"sequence_number\":15}",
+        "parsed": {
+          "p": "f",
+          "type": "response.output_text.delta",
+          "content_index": 0,
+          "delta": " ms",
+          "item_id": "msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735",
+          "logprobs": [],
+          "obfuscation": "g62rkDgENUJNJ",
+          "output_index": 0,
+          "sequence_number": 15
+        }
+      },
+      {
+        "event": "response.output_text.delta",
+        "data": "{\"p\": \"37ec3\", \"type\":\"response.output_text.delta\",\"content_index\":0,\"delta\":\".\",\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"obfuscation\":\"MvaV4tD60UWN4gc\",\"output_index\":0,\"sequence_number\":16}",
+        "parsed": {
+          "p": "37ec3",
+          "type": "response.output_text.delta",
+          "content_index": 0,
+          "delta": ".",
+          "item_id": "msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735",
+          "logprobs": [],
+          "obfuscation": "MvaV4tD60UWN4gc",
+          "output_index": 0,
+          "sequence_number": 16
+        }
+      },
+      {
+        "event": "response.output_text.done",
+        "data": "{\"p\": \"70704\", \"type\":\"response.output_text.done\",\"content_index\":0,\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"logprobs\":[],\"output_index\":0,\"sequence_number\":17,\"text\":\"Billing service is healthy, with a latency of 12 ms.\"}",
+        "parsed": {
+          "p": "70704",
+          "type": "response.output_text.done",
+          "content_index": 0,
+          "item_id": "msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735",
+          "logprobs": [],
+          "output_index": 0,
+          "sequence_number": 17,
+          "text": "Billing service is healthy, with a latency of 12 ms."
+        }
+      },
+      {
+        "event": "response.content_part.done",
+        "data": "{\"p\": \"0c12696fa400ee\", \"type\":\"response.content_part.done\",\"content_index\":0,\"item_id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"output_index\":0,\"part\":{\"type\":\"output_text\",\"annotations\":[],\"logprobs\":[],\"text\":\"Billing service is healthy, with a latency of 12 ms.\"},\"sequence_number\":18}",
+        "parsed": {
+          "p": "0c12696fa400ee",
+          "type": "response.content_part.done",
+          "content_index": 0,
+          "item_id": "msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735",
+          "output_index": 0,
+          "part": {
+            "type": "output_text",
+            "annotations": [],
+            "logprobs": [],
+            "text": "Billing service is healthy, with a latency of 12 ms."
+          },
+          "sequence_number": 18
+        }
+      },
+      {
+        "event": "response.output_item.done",
+        "data": "{\"p\": \"fc5469ee\", \"type\":\"response.output_item.done\",\"item\":{\"id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"type\":\"message\",\"status\":\"completed\",\"content\":[{\"type\":\"output_text\",\"annotations\":[],\"logprobs\":[],\"text\":\"Billing service is healthy, with a latency of 12 ms.\"}],\"phase\":\"final_answer\",\"role\":\"assistant\"},\"output_index\":0,\"sequence_number\":19}",
+        "parsed": {
+          "p": "fc5469ee",
+          "type": "response.output_item.done",
+          "item": {
+            "id": "msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735",
+            "type": "message",
+            "status": "completed",
+            "content": [
+              {
+                "type": "output_text",
+                "annotations": [],
+                "logprobs": [],
+                "text": "Billing service is healthy, with a latency of 12 ms."
+              }
+            ],
+            "phase": "final_answer",
+            "role": "assistant"
+          },
+          "output_index": 0,
+          "sequence_number": 19
+        }
+      },
+      {
+        "event": "response.completed",
+        "data": "{\"p\": \"63da7d3\", \"type\":\"response.completed\",\"response\":{\"id\":\"resp_0f98e96a2dd539de016afd93914f8487d0a1c80f637d26c479\",\"object\":\"response\",\"created_at\":1795003281,\"status\":\"completed\",\"access_programs\":null,\"background\":false,\"completed_at\":1795003281,\"error\":null,\"frequency_penalty\":0.0,\"image\":{\"context_compression\":\"disabled\"},\"incomplete_details\":null,\"input_transformations\":[],\"instructions\":null,\"max_output_tokens\":128,\"max_tool_calls\":null,\"model\":\"gpt-5.6-luna\",\"moderation\":null,\"output\":[{\"id\":\"msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735\",\"type\":\"message\",\"status\":\"completed\",\"content\":[{\"type\":\"output_text\",\"annotations\":[],\"logprobs\":[],\"text\":\"Billing service is healthy, with a latency of 12 ms.\"}],\"phase\":\"final_answer\",\"role\":\"assistant\"}],\"parallel_tool_calls\":true,\"presence_penalty\":0.0,\"previous_response_id\":null,\"prompt_cache_key\":null,\"prompt_cache_retention\":\"24h\",\"reasoning\":{\"context\":\"all_turns\",\"effort\":\"low\",\"mode\":\"standard\",\"summary\":null},\"safety_identifier\":null,\"service_tier\":\"default\",\"store\":false,\"temperature\":1.0,\"text\":{\"format\":{\"type\":\"text\"},\"verbosity\":\"medium\"},\"tool_choice\":\"auto\",\"tool_usage\":{\"image_gen\":{\"input_tokens\":0,\"input_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"output_tokens\":0,\"output_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"total_tokens\":0},\"web_search\":{\"num_requests\":0}},\"tools\":[{\"type\":\"function\",\"description\":\"Look up live service status by service code.\",\"name\":\"lookup_status\",\"output_schema\":null,\"parameters\":{\"type\":\"object\",\"properties\":{\"service\":{\"type\":\"string\",\"description\":\"Service identifier such as billing or gateway\"}},\"required\":[\"service\"],\"additionalProperties\":false},\"strict\":true}],\"top_logprobs\":0,\"top_p\":0.98,\"truncation\":\"disabled\",\"usage\":{\"input_tokens\":107,\"input_tokens_details\":{\"cache_write_tokens\":0,\"cache_write_tokens_details\":{\"ttl_12h_tokens\":0,\"ttl_30m_tokens\":0},\"cached_tokens\":0},\"output_tokens\":17,\"output_tokens_details\":{\"reasoning_tokens\":0},\"total_tokens\":124},\"user\":null,\"metadata\":{}},\"sequence_number\":20}",
+        "parsed": {
+          "p": "63da7d3",
+          "type": "response.completed",
+          "response": {
+            "id": "resp_0f98e96a2dd539de016afd93914f8487d0a1c80f637d26c479",
+            "object": "response",
+            "created_at": 1795003281,
+            "status": "completed",
+            "access_programs": null,
+            "background": false,
+            "completed_at": 1795003281,
+            "error": null,
+            "frequency_penalty": 0,
+            "image": {
+              "context_compression": "disabled"
+            },
+            "incomplete_details": null,
+            "input_transformations": [],
+            "instructions": null,
+            "max_output_tokens": 128,
+            "max_tool_calls": null,
+            "model": "gpt-5.6-luna",
+            "moderation": null,
+            "output": [
+              {
+                "id": "msg_0f98e96a2dd539de016afd9391bd7c87d0afacada1e57e6735",
+                "type": "message",
+                "status": "completed",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "annotations": [],
+                    "logprobs": [],
+                    "text": "Billing service is healthy, with a latency of 12 ms."
+                  }
+                ],
+                "phase": "final_answer",
+                "role": "assistant"
+              }
+            ],
+            "parallel_tool_calls": true,
+            "presence_penalty": 0,
+            "previous_response_id": null,
+            "prompt_cache_key": null,
+            "prompt_cache_retention": "24h",
+            "reasoning": {
+              "context": "all_turns",
+              "effort": "low",
+              "mode": "standard",
+              "summary": null
+            },
+            "safety_identifier": null,
+            "service_tier": "default",
+            "store": false,
+            "temperature": 1,
+            "text": {
+              "format": {
+                "type": "text"
+              },
+              "verbosity": "medium"
+            },
+            "tool_choice": "auto",
+            "tool_usage": {
+              "image_gen": {
+                "input_tokens": 0,
+                "input_tokens_details": {
+                  "image_tokens": 0,
+                  "text_tokens": 0
+                },
+                "output_tokens": 0,
+                "output_tokens_details": {
+                  "image_tokens": 0,
+                  "text_tokens": 0
+                },
+                "total_tokens": 0
+              },
+              "web_search": {
+                "num_requests": 0
+              }
+            },
+            "tools": [
+              {
+                "type": "function",
+                "description": "Look up live service status by service code.",
+                "name": "lookup_status",
+                "output_schema": null,
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "service": {
+                      "type": "string",
+                      "description": "Service identifier such as billing or gateway"
+                    }
+                  },
+                  "required": [
+                    "service"
+                  ],
+                  "additionalProperties": false
+                },
+                "strict": true
+              }
+            ],
+            "top_logprobs": 0,
+            "top_p": 0.98,
+            "truncation": "disabled",
+            "usage": {
+              "input_tokens": 107,
+              "input_tokens_details": {
+                "cache_write_tokens": 0,
+                "cache_write_tokens_details": {
+                  "ttl_12h_tokens": 0,
+                  "ttl_30m_tokens": 0
+                },
+                "cached_tokens": 0
+              },
+              "output_tokens": 17,
+              "output_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "total_tokens": 124
+            },
+            "user": null,
+            "metadata": {}
+          },
+          "sequence_number": 20
+        }
+      }
+    ]
+  },
+  "analysis": {
+    "extractorUsage": {
+      "inputTokens": 107,
+      "outputTokens": 17,
+      "cacheRead": 0,
+      "cacheWrite": 0
+    },
+    "estimatedCostCredits": 4180
+  }
+}

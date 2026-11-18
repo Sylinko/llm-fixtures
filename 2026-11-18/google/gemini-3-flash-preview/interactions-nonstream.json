@@ -1,0 +1,63 @@
+{
+  "capturedAt": "2026-11-18T11:59:05.344Z",
+  "source": "cloudflare-ai-gateway",
+  "provider": "google-ai-studio",
+  "modelId": "google/gemini-3-flash-preview",
+  "modelName": "gemini-3-flash-preview",
+  "schema": "google-interactions-v1",
+  "endpoint": "v1/interactions",
+  "scenario": "interactions-nonstream",
+  "request": {
+    "method": "POST",
+    "gatewayPath": "google-ai-studio/v1/interactions",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "model": "gemini-3-flash-preview",
+      "input": "Reply with the exact string OK-INT.",
+      "store": false,
+      "generation_config": {
+        "max_output_tokens": 64,
+        "thinking_level": "minimal"
+      }
+    }
+  },
+  "response": {
+    "status": 404,
+    "ok": false,
+    "headers": {
+      "cf-aig-event-id": "01a1ee86-5c63-73a5-9db9-ad20390582d3",
+      "cf-aig-log-id": "01a1ee86-5c63-73a5-9db9-ad20390582d3",
+      "cf-aig-request-id": "01a1ee86-5c63-73a5-9db9-ad20390582d3",
+      "cf-aig-step": "0",
+      "cf-aig-trace-id": "67edf71260a94cacbce01574a816f771",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5c6ce9a3ddded3e-SJC",
+      "connection": "keep-alive",
+      "content-encoding": "gzip",
+      "content-length": "231",
+      "content-type": "application/json; charset=UTF-8",
+      "date": "Wed, 18 Nov 2026 11:59:05 GMT",
+      "server": "cloudflare",
+      "server-timing": "gfet4t7; dur=93",
+      "set-cookie": "__cf_bm=NtG9MOYZsPTiNPvhDxsBznlRxIEIuZRIP1BIahOGb3M-1795003145.3141296-1.0.1.1-gnNNgBK2_MxlfOMm8U9HBc_EeNpHhVV6oqU5uRemGt5WtFpGyOIZ9N6MzygGAOnjApJnLw9i3Jju7LkqJAinQUaK2Btvfel1YSs5T..in8s.yk5bzgoLxq881GLUkIYW; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=gateway.ai.cloudflare.com; Expires=Wed, 18 Nov 2026 12:29:05 GMT",
+      "vary": "Origin, X-Origin, Referer, accept-encoding",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "0"
+    },
+    "isStream": false,
+    "rawBody": "{\"error\":{\"message\":\"Model 'gemini-3-flash-preview' not found. If this model or capability is only available in v1beta, set the API version to 'v1beta' (see https://ai.google.dev/gemini-api/docs/api-versions). Please verify the model name against the supported list: https://ai.google.dev/gemini-api/docs/models\",\"code\":\"not_found\"}}",
+    "parsedJson": {
+      "error": {
+        "message": "Model 'gemini-3-flash-preview' not found. If this model or capability is only available in v1beta, set the API version to 'v1beta' (see https://ai.google.dev/gemini-api/docs/api-versions). Please verify the model name against the supported list: https://ai.google.dev/gemini-api/docs/models",
+        "code": "not_found"
+      }
+    }
+  },
+  "analysis": {
+    "extractorUsage": null,
+    "estimatedCostCredits": null
+  }
+}

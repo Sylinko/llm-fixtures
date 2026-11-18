@@ -1,0 +1,93 @@
+{
+  "capturedAt": "2026-11-18T12:20:39.335Z",
+  "source": "cloudflare-ai-gateway",
+  "provider": "google-ai-studio",
+  "modelId": "google/gemini-3-flash-preview",
+  "modelName": "gemini-3-flash-preview",
+  "schema": "google-v1beta",
+  "endpoint": "v1beta/models/gemini-3-flash-preview:generateContent",
+  "scenario": "v1beta-generateContent-nonstream",
+  "request": {
+    "method": "POST",
+    "gatewayPath": "google-ai-studio/v1beta/models/gemini-3-flash-preview:generateContent",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "contents": [
+        {
+          "role": "user",
+          "parts": [
+            {
+              "text": "Reply with OK-V1BETA."
+            }
+          ]
+        }
+      ],
+      "generationConfig": {
+        "maxOutputTokens": 32
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "ok": true,
+    "headers": {
+      "cf-aig-cache-status": "MISS",
+      "cf-aig-event-id": "01a1ee9a-1679-718f-bfe1-0be11006b30b",
+      "cf-aig-log-id": "01a1ee9a-1679-718f-bfe1-0be11006b30b",
+      "cf-aig-request-id": "01a1ee9a-1679-718f-bfe1-0be11006b30b",
+      "cf-aig-step": "0",
+      "cf-aig-trace-id": "b2eb73913ed2489b88e299a303eac4e2",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5c6ee2a5d8de817-SJC",
+      "connection": "keep-alive",
+      "content-encoding": "gzip",
+      "content-type": "application/json; charset=UTF-8",
+      "date": "Wed, 18 Nov 2026 12:20:39 GMT",
+      "server": "cloudflare",
+      "server-timing": "gfet4t7; dur=844",
+      "set-cookie": "__cf_bm=5GByXTNuSs_xKMWLo3uGOeIYrrUW4Uln7UBBm_QwOYg-1795004438.1353753-1.0.1.1-YAv2e2lZf7QitxtlOJKG3RBPBbda6UmNmhYaaL7_E3X7mmCX5rRgGIcy_Iy.Dy2lrShsePt4e2nI2vI7LfsinMETH0R.TfHgVtB7co50W.7EUwX4Rh3LY3JvRAvNia0C; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=gateway.ai.cloudflare.com; Expires=Wed, 18 Nov 2026 12:50:39 GMT",
+      "transfer-encoding": "chunked",
+      "vary": "Origin, X-Origin, Referer, accept-encoding",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "x-gemini-service-tier": "standard",
+      "x-xss-protection": "0"
+    },
+    "isStream": false,
+    "rawBody": "{\n  \"candidates\": [\n    {\n      \"content\": {},\n      \"finishReason\": \"MAX_TOKENS\",\n      \"index\": 0\n    }\n  ],\n  \"usageMetadata\": {\n    \"promptTokenCount\": 10,\n    \"totalTokenCount\": 38,\n    \"promptTokensDetails\": [\n      {\n        \"modality\": \"TEXT\",\n        \"tokenCount\": 10\n      }\n    ],\n    \"thoughtsTokenCount\": 28,\n    \"serviceTier\": \"standard\"\n  },\n  \"modelVersion\": \"gemini-3-flash-preview\",\n  \"responseId\": \"Fpj9aoC3GomV_uMPkZODuQQ\"\n}\n",
+    "parsedJson": {
+      "candidates": [
+        {
+          "content": {},
+          "finishReason": "MAX_TOKENS",
+          "index": 0
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 10,
+        "totalTokenCount": 38,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10
+          }
+        ],
+        "thoughtsTokenCount": 28,
+        "serviceTier": "standard"
+      },
+      "modelVersion": "gemini-3-flash-preview",
+      "responseId": "Fpj9aoC3GomV_uMPkZODuQQ"
+    }
+  },
+  "analysis": {
+    "extractorUsage": {
+      "inputTokens": 10,
+      "outputTokens": 28,
+      "cacheRead": 0,
+      "cacheWrite": 0
+    },
+    "estimatedCostCredits": 8900
+  }
+}

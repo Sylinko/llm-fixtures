@@ -1,0 +1,102 @@
+{
+  "capturedAt": "2026-11-18T11:58:11.071Z",
+  "source": "cloudflare-ai-gateway",
+  "provider": "deepseek",
+  "modelId": "deepseek/deepseek-flash",
+  "modelName": "deepseek-flash",
+  "schema": "deepseek-2025-12-01",
+  "endpoint": "chat/completions",
+  "scenario": "chat-nonstream",
+  "request": {
+    "method": "POST",
+    "gatewayPath": "deepseek/chat/completions",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "model": "deepseek-flash",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Reply with the exact string OK-CHAT."
+        }
+      ],
+      "max_tokens": 64,
+      "stream": false,
+      "user_id": "live-capture-user"
+    }
+  },
+  "response": {
+    "status": 200,
+    "ok": true,
+    "headers": {
+      "access-control-allow-credentials": "true",
+      "cf-aig-cache-status": "MISS",
+      "cf-aig-event-id": "01a1ee85-8485-7063-a408-fe6aba54d9a9",
+      "cf-aig-log-id": "01a1ee85-8485-7063-a408-fe6aba54d9a9",
+      "cf-aig-request-id": "01a1ee85-8485-7063-a408-fe6aba54d9a9",
+      "cf-aig-step": "0",
+      "cf-aig-trace-id": "0c0e52a21f4b47d0b5639c219454374d",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5c6cd40dfccef28-SJC",
+      "connection": "keep-alive",
+      "content-encoding": "br",
+      "content-type": "application/json",
+      "date": "Wed, 18 Nov 2026 11:58:11 GMT",
+      "server": "cloudflare",
+      "set-cookie": "__cf_bm=QDGFeR1fT26NnMDLcr.y.8ltln4g81yWbvEAEGVvfkk-1795003090.0525107-1.0.1.1-HI2t7JWl3mhVNXBYUob7ZuDONYtyzkR8td.2xKDb.OFBR5bcKYXDA82A3XWUeTGGIqTcey0pIU_G98i9Ax76BTQO0uTScpyMcQF2bmk5xvZjs_kw0.AIDsrVZf58b51I; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=gateway.ai.cloudflare.com; Expires=Wed, 18 Nov 2026 12:28:11 GMT",
+      "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+      "transfer-encoding": "chunked",
+      "vary": "accept-encoding,origin, access-control-request-method, access-control-request-headers",
+      "via": "1.1 1a89524650229737fbb42049a0f558cc.cloudfront.net (CloudFront)",
+      "x-amz-cf-id": "FK3kFOmElofu1I7CGtGIukfZa0gU24-fOvu27mfqYhd56Q3M6ovikQ==",
+      "x-amz-cf-pop": "SFO53-P1",
+      "x-cache": "Miss from cloudfront",
+      "x-content-type-options": "nosniff",
+      "x-ds-trace-id": "e894a3822423cd7782bc499f60fef07c"
+    },
+    "isStream": false,
+    "rawBody": "{\"id\":\"7987b56e-b595-4dbe-8429-12dd75a8e561\",\"object\":\"chat.completion\",\"created\":1795003090,\"model\":\"deepseek-flash\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"OK-CHAT\",\"reasoning_content\":\"We need answer exact string OK-CHAT. Need no extra.\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":39,\"completion_tokens\":17,\"total_tokens\":56,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":13},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":39},\"system_fingerprint\":\"bc19ba97cbe016479903222bb1578db6\"}",
+    "parsedJson": {
+      "id": "7987b56e-b595-4dbe-8429-12dd75a8e561",
+      "object": "chat.completion",
+      "created": 1795003090,
+      "model": "deepseek-flash",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "OK-CHAT",
+            "reasoning_content": "We need answer exact string OK-CHAT. Need no extra."
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 39,
+        "completion_tokens": 17,
+        "total_tokens": 56,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 13
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 39
+      },
+      "system_fingerprint": "bc19ba97cbe016479903222bb1578db6"
+    }
+  },
+  "analysis": {
+    "extractorUsage": {
+      "inputTokens": 39,
+      "outputTokens": 17,
+      "cacheRead": 0,
+      "cacheWrite": 0
+    },
+    "estimatedCostCredits": 1605
+  }
+}

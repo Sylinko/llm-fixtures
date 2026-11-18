@@ -1,0 +1,63 @@
+{
+  "capturedAt": "2026-11-18T12:41:48.000Z",
+  "source": "cloudflare-ai-gateway",
+  "provider": "openai",
+  "modelId": "openai/gpt-5.6-luna",
+  "modelName": "gpt-5.6-luna",
+  "schema": "responses-v1",
+  "endpoint": "responses",
+  "scenario": "error-context-length-exceeded",
+  "request": {
+    "method": "POST",
+    "gatewayPath": "openai/responses",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "_omittedLargeRequestBodyBytes": 6800112,
+      "model": "gpt-5.6-luna",
+      "endpoint": "responses"
+    }
+  },
+  "response": {
+    "status": 400,
+    "ok": false,
+    "headers": {
+      "access-control-expose-headers": "X-Request-ID, Server-Timing-Total, X-OpenAI-Inference-Capacity-Reason, CF-Ray, CF-Ray",
+      "cf-aig-event-id": "01a1eead-314b-77b0-991a-650129039f88",
+      "cf-aig-log-id": "01a1eead-314b-77b0-991a-650129039f88",
+      "cf-aig-request-id": "01a1eead-314b-77b0-991a-650129039f88",
+      "cf-aig-step": "0",
+      "cf-aig-trace-id": "a20c0107f78c45cf922078b10fa7d3ad",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5c70cb29d443824-SJC",
+      "connection": "keep-alive",
+      "content-length": "228",
+      "content-type": "application/json",
+      "date": "Wed, 18 Nov 2026 12:41:48 GMT",
+      "openai-organization": "user-vnfct44mzu684h578pbwavmo",
+      "openai-processing-ms": "17145",
+      "openai-project": "proj_0fVunpPWS4nTnpr04shNxqNR",
+      "openai-version": "2020-10-01",
+      "server": "cloudflare",
+      "set-cookie": "__cf_bm=MUd8C4qDa6rgbFw2L1_LLIKtKfclC1LsJu25wUGVBbs-1795005688.734069-1.0.1.1-JV.rberWddnjvx_vIPjDb3YZT7uTNMa4gl2wN7E3VHGzX32uM8xngg6rUYY0t6Ulqi0m2kQFScv_V4qypf8tOHo_RWDuVhf2pgBeX_8x7y6yHx0FK4.QQHi5xRmkzH7B; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=gateway.ai.cloudflare.com; Expires=Wed, 18 Nov 2026 13:11:47 GMT",
+      "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+      "x-content-type-options": "nosniff",
+      "x-request-id": "req_c4a5c30423f54f3aa32a04aa1beb9883"
+    },
+    "isStream": false,
+    "rawBody": "{\n  \"error\": {\n    \"message\": \"Your input exceeds the context window of this model. Please adjust your input and try again.\",\n    \"type\": \"invalid_request_error\",\n    \"param\": \"input\",\n    \"code\": \"context_length_exceeded\"\n  }\n}",
+    "parsedJson": {
+      "error": {
+        "message": "Your input exceeds the context window of this model. Please adjust your input and try again.",
+        "type": "invalid_request_error",
+        "param": "input",
+        "code": "context_length_exceeded"
+      }
+    }
+  },
+  "analysis": {
+    "extractorUsage": null,
+    "estimatedCostCredits": null
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "capturedAt": "2026-11-18T12:41:55.725Z",
+  "source": "cloudflare-ai-gateway",
+  "provider": "anthropic",
+  "modelId": "anthropic/claude-haiku-5-5",
+  "modelName": "claude-haiku-5-5",
+  "schema": "messages-2023-06-01",
+  "endpoint": "v1/messages",
+  "scenario": "error-context-length-exceeded",
+  "request": {
+    "method": "POST",
+    "gatewayPath": "anthropic/v1/messages",
+    "headers": {
+      "content-type": "application/json",
+      "anthropic-version": "2023-06-01"
+    },
+    "body": {
+      "_omittedLargeRequestBodyBytes": 6800086,
+      "model": "claude-haiku-5-5",
+      "endpoint": "v1/messages"
+    }
+  },
+  "response": {
+    "status": 400,
+    "ok": false,
+    "headers": {
+      "anthropic-organization-id": "8aa1cca3-c387-4ac8-a210-6964599c9aa1",
+      "anthropic-workspace-id": "wrkspc_011Zfy6oE9haCfXASrUzHLDo",
+      "cf-aig-event-id": "01a1eead-9004-734a-b5e3-8125535a0686",
+      "cf-aig-log-id": "01a1eead-9004-734a-b5e3-8125535a0686",
+      "cf-aig-request-id": "01a1eead-9004-734a-b5e3-8125535a0686",
+      "cf-aig-step": "0",
+      "cf-aig-trace-id": "79017d7ff99f49c693fa098879c52484",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5c70d52ca698467-SJC",
+      "connection": "keep-alive",
+      "content-encoding": "br",
+      "content-security-policy": "default-src 'none'; frame-ancestors 'none'",
+      "content-type": "application/json",
+      "date": "Wed, 18 Nov 2026 12:41:55 GMT",
+      "request-id": "req_011ChAQou2vKBbqiLU7M27SF",
+      "server": "cloudflare",
+      "server-timing": "x-originResponse;dur=1232",
+      "set-cookie": "__cf_bm=59klJh58qRSJogynMYAZaH_zfxMbB7IZ1ieW1jtHXKU-1795005714.3619547-1.0.1.1-C_0YPCigHJELllgcZl4pUpDE1fDZiB.kvVxP3oR3gJnnqsoq8ikGLFpb43xD6ems5CSUjmnSnKbxdEfVWh27Hky.jEOr_tkhbEA.jYpD5u2PT8iwUAEsi.SjtWUKN8pZ; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=gateway.ai.cloudflare.com; Expires=Wed, 18 Nov 2026 13:11:55 GMT",
+      "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+      "traceresponse": "00-769cc69fa55ff7ac366670b8d9a8223e-3b456d5b3f485a60-01",
+      "transfer-encoding": "chunked",
+      "vary": "Accept-Encoding",
+      "x-robots-tag": "none",
+      "x-should-retry": "false"
+    },
+    "isStream": false,
+    "rawBody": "{\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"prompt is too long: 6800056 tokens > 1000000 maximum\"},\"request_id\":\"req_011ChAQou2vKBbqiLU7M27SF\"}",
+    "parsedJson": {
+      "type": "error",
+      "error": {
+        "type": "invalid_request_error",
+        "message": "prompt is too long: 6800056 tokens > 1000000 maximum"
+      },
+      "request_id": "req_011ChAQou2vKBbqiLU7M27SF"
+    }
+  },
+  "analysis": {
+    "extractorUsage": null,
+    "estimatedCostCredits": null
+  }
+}

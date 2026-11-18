@@ -1,0 +1,366 @@
+{
+  "capturedAt": "2026-11-18T11:58:51.837Z",
+  "source": "cloudflare-ai-gateway",
+  "provider": "custom-minimax",
+  "modelId": "minimax/MiniMax-M3",
+  "modelName": "MiniMax-M3",
+  "schema": "messages-2023-06-01",
+  "endpoint": "anthropic/v1/messages",
+  "scenario": "messages-stream-tools-turn2",
+  "request": {
+    "method": "POST",
+    "gatewayPath": "custom-minimax/anthropic/v1/messages",
+    "headers": {
+      "content-type": "application/json",
+      "anthropic-version": "2023-06-01"
+    },
+    "body": {
+      "model": "MiniMax-M3",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Call lookup_status with service='gateway', then summarize."
+        },
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "I'll check the gateway service status."
+            },
+            {
+              "type": "tool_use",
+              "id": "call_01a1ee861fee724882c90ce6",
+              "name": "lookup_status",
+              "input": {
+                "service": "gateway"
+              }
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "call_01a1ee861fee724882c90ce6",
+              "content": "{\"status\":\"healthy\",\"latencyMs\":12}"
+            }
+          ]
+        }
+      ],
+      "tools": [
+        {
+          "name": "lookup_status",
+          "description": "Look up live service status by service code.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "service": {
+                "type": "string",
+                "description": "Service identifier such as billing or gateway"
+              }
+            },
+            "required": [
+              "service"
+            ]
+          }
+        }
+      ],
+      "max_tokens": 256,
+      "stream": true
+    }
+  },
+  "response": {
+    "status": 200,
+    "ok": true,
+    "headers": {
+      "access-control-allow-origin": "*",
+      "alb_receive_time": "1795003130.976",
+      "alb_request_id": "897704bbe4f2d981ce33aa4d7cd9db236945424c",
+      "cache-control": "max-age=0, no-cache, no-store",
+      "cf-aig-cache-status": "MISS",
+      "cf-aig-event-id": "01a1ee86-2406-762f-a87f-16aa11ada466",
+      "cf-aig-log-id": "01a1ee86-2406-762f-a87f-16aa11ada466",
+      "cf-aig-request-id": "01a1ee86-2406-762f-a87f-16aa11ada466",
+      "cf-aig-step": "0",
+      "cf-aig-trace-id": "bdd8a573d3564400a068eb6a447591e2",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5c6ce4009cff4d9-SJC",
+      "connection": "keep-alive",
+      "content-type": "text/event-stream; charset=utf-8",
+      "date": "Wed, 18 Nov 2026 11:58:51 GMT",
+      "expires": "Wed, 18 Nov 2026 11:58:51 GMT",
+      "minimax-request-id": "9a89c1801b5565a4bddda168be441212",
+      "pragma": "no-cache",
+      "server": "cloudflare",
+      "set-cookie": "__cf_bm=F_6H67esJPlhv1a7PnZthHLGrDg0CN6BbAYfLHEB_u4-1795003130.884626-1.0.1.1-sASsiwjrgvPe4Hsv0gCx9GhdlTlJ470Xj0iycazCN2Z8Qy8Q1DR.l1z.kgFPFS_WYUjCkyA6YqCEVCOXEKDNqRKqh41_wsalt2abucZQ.AaK8yZxl6tpBBgT7LIbz9T7; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=gateway.ai.cloudflare.com; Expires=Wed, 18 Nov 2026 12:28:51 GMT",
+      "trace-id": "074cc5fa2002bf12326f00fee3b30a8b",
+      "transfer-encoding": "chunked",
+      "vary": "Accept-Encoding",
+      "x-from": "ak",
+      "x-mm-request-id": "2038073520180704206_1795003130y8w3pb",
+      "x-session-id": "b545cbc1a0365a9f78b5f4663832a824"
+    },
+    "isStream": true,
+    "rawBody": "event: message_start\ndata: {\"p\": \"3a\", \"type\":\"message_start\",\"message\":{\"id\":\"074cc5fa2002bf12326f00fee3b30a8b\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"model\":\"MiniMax-M3\",\"stop_reason\":null,\"stop_sequence\":null,\"usage\":{\"input_tokens\":0,\"output_tokens\":0,\"service_tier\":\"standard\"},\"service_tier\":\"standard\"}}\n\nevent: ping\ndata: {\"p\": \"d38deb4fabc3df8\", \"type\":\"ping\"}\n\nevent: content_block_start\ndata: {\"p\": \"f4608d595d3f44\", \"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}}\n\nevent: content_block_delta\ndata: {\"p\": \"6d\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"**\"}}\n\nevent: content_block_delta\ndata: {\"p\": \"1\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Gateway\"}}\n\nevent: content_block_delta\ndata: {\"p\": \"4972fe09e781\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" service:\"}}\n\nevent: content_block_delta\ndata: {\"p\": \"bb3ba208cc13\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" healthy**\"}}\n\nevent: content_block_delta\ndata: {\"p\": \"ff04cab8146a\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" ✅\"}}\n\nevent: content_block_delta\ndata: {\"p\": \"0\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"\\n\\n- **\"}}\n\nevent: content_block_delta\ndata: {\"p\": \"0e83802cc403cba8\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Status:** healthy\\n- **\"}}\n\nevent: content_block_delta\ndata: {\"p\": \"79\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Latency:** 12ms\\n\\nThe\"}}\n\nevent: content_block_delta\ndata: {\"p\": \"cde\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" gateway is operating\"}}\n\nevent: content_block_delta\ndata: {\"p\": \"e2a32b\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" normally with a low\"}}\n\nevent: content_block_delta\ndata: {\"p\": \"1b731f69f\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" response time\"}}\n\nevent: content_block_delta\ndata: {\"p\": \"b027e8689e6c8f\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" — no action needed\"}}\n\nevent: content_block_delta\ndata: {\"p\": \"fac15b8cf035\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\".\"}}\n\nevent: content_block_stop\ndata: {\"p\": \"db2\", \"type\":\"content_block_stop\",\"index\":0}\n\nevent: message_delta\ndata: {\"p\": \"a85a\", \"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\"},\"usage\":{\"input_tokens\":60,\"output_tokens\":39,\"cache_read_input_tokens\":427,\"service_tier\":\"standard\"}}\n\nevent: message_stop\ndata: {\"p\": \"a7bb158\", \"type\":\"message_stop\"}\n\n",
+    "sseFrames": [
+      {
+        "event": "message_start",
+        "data": "{\"p\": \"3a\", \"type\":\"message_start\",\"message\":{\"id\":\"074cc5fa2002bf12326f00fee3b30a8b\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"model\":\"MiniMax-M3\",\"stop_reason\":null,\"stop_sequence\":null,\"usage\":{\"input_tokens\":0,\"output_tokens\":0,\"service_tier\":\"standard\"},\"service_tier\":\"standard\"}}",
+        "parsed": {
+          "p": "3a",
+          "type": "message_start",
+          "message": {
+            "id": "074cc5fa2002bf12326f00fee3b30a8b",
+            "type": "message",
+            "role": "assistant",
+            "content": [],
+            "model": "MiniMax-M3",
+            "stop_reason": null,
+            "stop_sequence": null,
+            "usage": {
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "service_tier": "standard"
+            },
+            "service_tier": "standard"
+          }
+        }
+      },
+      {
+        "event": "ping",
+        "data": "{\"p\": \"d38deb4fabc3df8\", \"type\":\"ping\"}",
+        "parsed": {
+          "p": "d38deb4fabc3df8",
+          "type": "ping"
+        }
+      },
+      {
+        "event": "content_block_start",
+        "data": "{\"p\": \"f4608d595d3f44\", \"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}}",
+        "parsed": {
+          "p": "f4608d595d3f44",
+          "type": "content_block_start",
+          "index": 0,
+          "content_block": {
+            "type": "text",
+            "text": ""
+          }
+        }
+      },
+      {
+        "event": "content_block_delta",
+        "data": "{\"p\": \"6d\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"**\"}}",
+        "parsed": {
+          "p": "6d",
+          "type": "content_block_delta",
+          "index": 0,
+          "delta": {
+            "type": "text_delta",
+            "text": "**"
+          }
+        }
+      },
+      {
+        "event": "content_block_delta",
+        "data": "{\"p\": \"1\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Gateway\"}}",
+        "parsed": {
+          "p": "1",
+          "type": "content_block_delta",
+          "index": 0,
+          "delta": {
+            "type": "text_delta",
+            "text": "Gateway"
+          }
+        }
+      },
+      {
+        "event": "content_block_delta",
+        "data": "{\"p\": \"4972fe09e781\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" service:\"}}",
+        "parsed": {
+          "p": "4972fe09e781",
+          "type": "content_block_delta",
+          "index": 0,
+          "delta": {
+            "type": "text_delta",
+            "text": " service:"
+          }
+        }
+      },
+      {
+        "event": "content_block_delta",
+        "data": "{\"p\": \"bb3ba208cc13\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" healthy**\"}}",
+        "parsed": {
+          "p": "bb3ba208cc13",
+          "type": "content_block_delta",
+          "index": 0,
+          "delta": {
+            "type": "text_delta",
+            "text": " healthy**"
+          }
+        }
+      },
+      {
+        "event": "content_block_delta",
+        "data": "{\"p\": \"ff04cab8146a\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" ✅\"}}",
+        "parsed": {
+          "p": "ff04cab8146a",
+          "type": "content_block_delta",
+          "index": 0,
+          "delta": {
+            "type": "text_delta",
+            "text": " ✅"
+          }
+        }
+      },
+      {
+        "event": "content_block_delta",
+        "data": "{\"p\": \"0\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"\\n\\n- **\"}}",
+        "parsed": {
+          "p": "0",
+          "type": "content_block_delta",
+          "index": 0,
+          "delta": {
+            "type": "text_delta",
+            "text": "\n\n- **"
+          }
+        }
+      },
+      {
+        "event": "content_block_delta",
+        "data": "{\"p\": \"0e83802cc403cba8\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Status:** healthy\\n- **\"}}",
+        "parsed": {
+          "p": "0e83802cc403cba8",
+          "type": "content_block_delta",
+          "index": 0,
+          "delta": {
+            "type": "text_delta",
+            "text": "Status:** healthy\n- **"
+          }
+        }
+      },
+      {
+        "event": "content_block_delta",
+        "data": "{\"p\": \"79\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"Latency:** 12ms\\n\\nThe\"}}",
+        "parsed": {
+          "p": "79",
+          "type": "content_block_delta",
+          "index": 0,
+          "delta": {
+            "type": "text_delta",
+            "text": "Latency:** 12ms\n\nThe"
+          }
+        }
+      },
+      {
+        "event": "content_block_delta",
+        "data": "{\"p\": \"cde\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" gateway is operating\"}}",
+        "parsed": {
+          "p": "cde",
+          "type": "content_block_delta",
+          "index": 0,
+          "delta": {
+            "type": "text_delta",
+            "text": " gateway is operating"
+          }
+        }
+      },
+      {
+        "event": "content_block_delta",
+        "data": "{\"p\": \"e2a32b\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" normally with a low\"}}",
+        "parsed": {
+          "p": "e2a32b",
+          "type": "content_block_delta",
+          "index": 0,
+          "delta": {
+            "type": "text_delta",
+            "text": " normally with a low"
+          }
+        }
+      },
+      {
+        "event": "content_block_delta",
+        "data": "{\"p\": \"1b731f69f\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" response time\"}}",
+        "parsed": {
+          "p": "1b731f69f",
+          "type": "content_block_delta",
+          "index": 0,
+          "delta": {
+            "type": "text_delta",
+            "text": " response time"
+          }
+        }
+      },
+      {
+        "event": "content_block_delta",
+        "data": "{\"p\": \"b027e8689e6c8f\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" — no action needed\"}}",
+        "parsed": {
+          "p": "b027e8689e6c8f",
+          "type": "content_block_delta",
+          "index": 0,
+          "delta": {
+            "type": "text_delta",
+            "text": " — no action needed"
+          }
+        }
+      },
+      {
+        "event": "content_block_delta",
+        "data": "{\"p\": \"fac15b8cf035\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\".\"}}",
+        "parsed": {
+          "p": "fac15b8cf035",
+          "type": "content_block_delta",
+          "index": 0,
+          "delta": {
+            "type": "text_delta",
+            "text": "."
+          }
+        }
+      },
+      {
+        "event": "content_block_stop",
+        "data": "{\"p\": \"db2\", \"type\":\"content_block_stop\",\"index\":0}",
+        "parsed": {
+          "p": "db2",
+          "type": "content_block_stop",
+          "index": 0
+        }
+      },
+      {
+        "event": "message_delta",
+        "data": "{\"p\": \"a85a\", \"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\"},\"usage\":{\"input_tokens\":60,\"output_tokens\":39,\"cache_read_input_tokens\":427,\"service_tier\":\"standard\"}}",
+        "parsed": {
+          "p": "a85a",
+          "type": "message_delta",
+          "delta": {
+            "stop_reason": "end_turn"
+          },
+          "usage": {
+            "input_tokens": 60,
+            "output_tokens": 39,
+            "cache_read_input_tokens": 427,
+            "service_tier": "standard"
+          }
+        }
+      },
+      {
+        "event": "message_stop",
+        "data": "{\"p\": \"a7bb158\", \"type\":\"message_stop\"}",
+        "parsed": {
+          "p": "a7bb158",
+          "type": "message_stop"
+        }
+      }
+    ]
+  },
+  "analysis": {
+    "extractorUsage": {
+      "inputTokens": 487,
+      "outputTokens": 39,
+      "cacheRead": 427,
+      "cacheWrite": 0
+    },
+    "estimatedCostCredits": 9042
+  }
+}

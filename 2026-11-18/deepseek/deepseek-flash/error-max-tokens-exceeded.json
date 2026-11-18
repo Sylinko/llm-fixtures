@@ -1,0 +1,75 @@
+{
+  "capturedAt": "2026-11-18T12:41:56.230Z",
+  "source": "cloudflare-ai-gateway",
+  "provider": "deepseek",
+  "modelId": "deepseek/deepseek-flash",
+  "modelName": "deepseek-flash",
+  "schema": "deepseek-2025-12-01",
+  "endpoint": "chat/completions",
+  "scenario": "error-max-tokens-exceeded",
+  "request": {
+    "method": "POST",
+    "gatewayPath": "deepseek/chat/completions",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "model": "deepseek-flash",
+      "messages": [
+        {
+          "role": "user",
+          "content": "hi"
+        }
+      ],
+      "max_tokens": 999999,
+      "stream": true,
+      "stream_options": {
+        "include_usage": true
+      },
+      "user_id": "live-capture-user"
+    }
+  },
+  "response": {
+    "status": 400,
+    "ok": false,
+    "headers": {
+      "access-control-allow-credentials": "true",
+      "cf-aig-event-id": "01a1eead-963f-767d-b4be-c97c55823dc6",
+      "cf-aig-log-id": "01a1eead-963f-767d-b4be-c97c55823dc6",
+      "cf-aig-request-id": "01a1eead-963f-767d-b4be-c97c55823dc6",
+      "cf-aig-step": "0",
+      "cf-aig-trace-id": "38d8f47035d04540b74644096fc73b53",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5c70d5d2e928467-SJC",
+      "connection": "keep-alive",
+      "content-encoding": "br",
+      "content-type": "application/json",
+      "date": "Wed, 18 Nov 2026 12:41:56 GMT",
+      "server": "cloudflare",
+      "set-cookie": "__cf_bm=CY.TetYpwfGG2nnNpl9gUM1MxD2Ilzu0iZX_kreWhH0-1795005716.0305445-1.0.1.1-duscOUq_mEfQufx6cCo11IKzjRxL5phI.TrNSyiIQ5dqglQ_7MRoec6k.nrCXCPwoKKqyNT3OEvVEd9nwP6kEkRBmuXuwazNDgdu1rOWb..YyRGF2LgEWteE8zaINt1e; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=gateway.ai.cloudflare.com; Expires=Wed, 18 Nov 2026 13:11:56 GMT",
+      "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+      "transfer-encoding": "chunked",
+      "vary": "accept-encoding,origin, access-control-request-method, access-control-request-headers",
+      "via": "1.1 75109f22d44404e68915a641fc09f102.cloudfront.net (CloudFront)",
+      "x-amz-cf-id": "VtlrJY2BxQPLY9243fAw_N_Wadt_-mvKbazkKoO_XlMUCX3itu2amg==",
+      "x-amz-cf-pop": "SFO53-P1",
+      "x-cache": "Error from cloudfront",
+      "x-content-type-options": "nosniff",
+      "x-ds-trace-id": "5da1707a30fbbe938e4253ff5a6b5372"
+    },
+    "isStream": true,
+    "rawBody": "{\"error\":{\"message\":\"Invalid max_tokens value, the valid range of max_tokens is [1, 393216] (request_id: 68314a16-6ea2-4fcd-a018-020b9d3ba9d0)\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+    "parsedJson": {
+      "error": {
+        "message": "Invalid max_tokens value, the valid range of max_tokens is [1, 393216] (request_id: 68314a16-6ea2-4fcd-a018-020b9d3ba9d0)",
+        "type": "invalid_request_error",
+        "param": null,
+        "code": "invalid_request_error"
+      }
+    }
+  },
+  "analysis": {
+    "extractorUsage": null,
+    "estimatedCostCredits": null
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "capturedAt": "2026-11-18T11:58:33.572Z",
+  "source": "cloudflare-ai-gateway",
+  "provider": "custom-minimax",
+  "modelId": "minimax/MiniMax-M3.1-Flash",
+  "modelName": "MiniMax-M3.1-Flash",
+  "schema": "messages-2023-06-01",
+  "endpoint": "anthropic/v1/messages",
+  "scenario": "messages-nonstream",
+  "request": {
+    "method": "POST",
+    "gatewayPath": "custom-minimax/anthropic/v1/messages",
+    "headers": {
+      "content-type": "application/json",
+      "anthropic-version": "2023-06-01"
+    },
+    "body": {
+      "model": "MiniMax-M3.1-Flash",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Reply with the exact string OK-ANT."
+        }
+      ],
+      "max_tokens": 64
+    }
+  },
+  "response": {
+    "status": 200,
+    "ok": true,
+    "headers": {
+      "access-control-allow-origin": "*",
+      "alb_receive_time": "1795003111.544",
+      "alb_request_id": "49837989abe603ce2493e7b841ba8886fff59c22",
+      "cache-control": "max-age=0, no-cache, no-store",
+      "cf-aig-cache-status": "MISS",
+      "cf-aig-event-id": "01a1ee85-d69d-735d-8f52-b02717a52ce1",
+      "cf-aig-log-id": "01a1ee85-d69d-735d-8f52-b02717a52ce1",
+      "cf-aig-request-id": "01a1ee85-d69d-735d-8f52-b02717a52ce1",
+      "cf-aig-step": "0",
+      "cf-aig-trace-id": "c5eb7c073fb54de1b50f5d2dd7416293",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5c6cdc42e50ef28-SJC",
+      "connection": "keep-alive",
+      "content-encoding": "gzip",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Wed, 18 Nov 2026 11:58:33 GMT",
+      "expires": "Wed, 18 Nov 2026 11:58:33 GMT",
+      "minimax-request-id": "1f5f9a79c363264923c2a0216ec7b8d0",
+      "pragma": "no-cache",
+      "server": "cloudflare",
+      "set-cookie": "__cf_bm=jnxzF8OjZivDN4PDa9GFR8e8ucaJGMtltR4HNm29ws4-1795003111.067767-1.0.1.1-Sp_9IPfl6mj.gpkdSbuajcs3Q3mouuekSKEIm02YXu1A3LDbUfAuX0_VD_97xOPPOxQpkeo4GVPqUZkwqnvoO0mruUDVgZ1MLIhcSAfnGsDluHzOrZh._mCXodDAg8X4; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=gateway.ai.cloudflare.com; Expires=Wed, 18 Nov 2026 12:28:33 GMT",
+      "trace-id": "074cc5e74eb81d68b7d73391063806d4",
+      "transfer-encoding": "chunked",
+      "x-from": "ak",
+      "x-mm-request-id": "2038073520180704206_1795003111ei0q54",
+      "x-session-id": "5857b11837e67226d6339cdc6efc42f2"
+    },
+    "isStream": false,
+    "rawBody": "{\"id\":\"074cc5e74eb81d68b7d73391063806d4\",\"type\":\"message\",\"role\":\"assistant\",\"model\":\"MiniMax-M3.1-Flash\",\"content\":[{\"text\":\"OK-ANT\",\"type\":\"text\"}],\"usage\":{\"input_tokens\":83,\"output_tokens\":5,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":128},\"stop_reason\":\"end_turn\",\"base_resp\":{\"status_code\":0,\"status_msg\":\"\"}}",
+    "parsedJson": {
+      "id": "074cc5e74eb81d68b7d73391063806d4",
+      "type": "message",
+      "role": "assistant",
+      "model": "MiniMax-M3.1-Flash",
+      "content": [
+        {
+          "text": "OK-ANT",
+          "type": "text"
+        }
+      ],
+      "usage": {
+        "input_tokens": 83,
+        "output_tokens": 5,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 128
+      },
+      "stop_reason": "end_turn",
+      "base_resp": {
+        "status_code": 0,
+        "status_msg": ""
+      }
+    }
+  },
+  "analysis": {
+    "extractorUsage": {
+      "inputTokens": 211,
+      "outputTokens": 5,
+      "cacheRead": 128,
+      "cacheWrite": 0
+    },
+    "estimatedCostCredits": 1737
+  }
+}

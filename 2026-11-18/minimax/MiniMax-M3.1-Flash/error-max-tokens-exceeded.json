@@ -1,0 +1,73 @@
+{
+  "capturedAt": "2026-11-18T12:42:13.582Z",
+  "source": "cloudflare-ai-gateway",
+  "provider": "custom-minimax",
+  "modelId": "minimax/MiniMax-M3.1-Flash",
+  "modelName": "MiniMax-M3.1-Flash",
+  "schema": "messages-2023-06-01",
+  "endpoint": "anthropic/v1/messages",
+  "scenario": "error-max-tokens-exceeded",
+  "request": {
+    "method": "POST",
+    "gatewayPath": "custom-minimax/anthropic/v1/messages",
+    "headers": {
+      "content-type": "application/json",
+      "anthropic-version": "2023-06-01"
+    },
+    "body": {
+      "model": "MiniMax-M3.1-Flash",
+      "messages": [
+        {
+          "role": "user",
+          "content": "hi"
+        }
+      ],
+      "max_tokens": 999999,
+      "stream": true
+    }
+  },
+  "response": {
+    "status": 400,
+    "ok": false,
+    "headers": {
+      "access-control-allow-origin": "*",
+      "alb_receive_time": "1795005733.64",
+      "alb_request_id": "c9826af963d1cfd5bcddf7b880c84f1a685838a7",
+      "cache-control": "max-age=0, no-cache, no-store",
+      "cf-aig-event-id": "01a1eead-d7ea-7654-aecb-ce0b7c94d2e1",
+      "cf-aig-log-id": "01a1eead-d7ea-7654-aecb-ce0b7c94d2e1",
+      "cf-aig-request-id": "01a1eead-d7ea-7654-aecb-ce0b7c94d2e1",
+      "cf-aig-step": "0",
+      "cf-aig-trace-id": "1a71c287f023414db8e7f7cca55b6102",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5c70dc63e428467-SJC",
+      "connection": "keep-alive",
+      "content-length": "208",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Wed, 18 Nov 2026 12:42:13 GMT",
+      "expires": "Wed, 18 Nov 2026 12:42:13 GMT",
+      "minimax-request-id": "ad3bec33c8be4b4ab54ff7423ed47f3c",
+      "pragma": "no-cache",
+      "server": "cloudflare",
+      "set-cookie": "__cf_bm=63niOJIfZFzEK3n62BjCxidVu8jmLszBKraEk3XwmsU-1795005732.8415205-1.0.1.1-YtcUedc5qQ91jbG.pR038DKXHcRW9dN6327yHt.S3uTxFIhlVAT2ojlOBrLBmtQ4d4YV4BHZIF9i1sZZKULyR8xEn9ZISPq08J_U4hT0TtZE18BqexBmdO2cG8kNxxC3; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=gateway.ai.cloudflare.com; Expires=Wed, 18 Nov 2026 13:12:13 GMT",
+      "trace-id": "074cd02546e1f5314f4b1316dc1ddd13",
+      "x-from": "ak",
+      "x-mm-request-id": "",
+      "x-session-id": ""
+    },
+    "isStream": true,
+    "rawBody": "{\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"invalid params, model[MiniMax-M3.1-Flash] does not support max tokens \\u003e 524288 (2013)\"},\"request_id\":\"074cd02546e1f5314f4b1316dc1ddd13\"}",
+    "parsedJson": {
+      "type": "error",
+      "error": {
+        "type": "invalid_request_error",
+        "message": "invalid params, model[MiniMax-M3.1-Flash] does not support max tokens > 524288 (2013)"
+      },
+      "request_id": "074cd02546e1f5314f4b1316dc1ddd13"
+    }
+  },
+  "analysis": {
+    "extractorUsage": null,
+    "estimatedCostCredits": null
+  }
+}

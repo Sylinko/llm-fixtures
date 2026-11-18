@@ -1,0 +1,65 @@
+{
+  "capturedAt": "2026-11-18T12:42:08.685Z",
+  "source": "cloudflare-ai-gateway",
+  "provider": "deepseek",
+  "modelId": "deepseek/deepseek-v4-pro",
+  "modelName": "deepseek-v4-pro",
+  "schema": "deepseek-2025-12-01",
+  "endpoint": "chat/completions",
+  "scenario": "error-context-length-exceeded",
+  "request": {
+    "method": "POST",
+    "gatewayPath": "deepseek/chat/completions",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "_omittedLargeRequestBodyBytes": 6800130,
+      "model": "deepseek-v4-pro",
+      "endpoint": "chat/completions"
+    }
+  },
+  "response": {
+    "status": 400,
+    "ok": false,
+    "headers": {
+      "access-control-allow-credentials": "true",
+      "cf-aig-event-id": "01a1eead-98a3-7222-aab3-72c824acac76",
+      "cf-aig-log-id": "01a1eead-98a3-7222-aab3-72c824acac76",
+      "cf-aig-request-id": "01a1eead-98a3-7222-aab3-72c824acac76",
+      "cf-aig-step": "0",
+      "cf-aig-trace-id": "d2816e2b5c4f4075b20389f90744fafc",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5c70d608d9a8467-SJC",
+      "connection": "keep-alive",
+      "content-encoding": "br",
+      "content-type": "application/json",
+      "date": "Wed, 18 Nov 2026 12:42:07 GMT",
+      "server": "cloudflare",
+      "set-cookie": "__cf_bm=r9cb_reallqJ9fjnTHQlEwxTIr1Gv1zS7WanWlngm4Y-1795005716.570712-1.0.1.1-7npEQ3bxpPK53okc2PCouWmcMkPx545nv_Bx._ed_fxzlnEHuPYvyMfCTdsLrsMyuICa_OyXlFyw9aAH3xYUoU5.0tB.s5Xx7tqc5CXIhCtxkOQb_4tC8mGk2LElkNUQ; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=gateway.ai.cloudflare.com; Expires=Wed, 18 Nov 2026 13:12:07 GMT",
+      "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+      "transfer-encoding": "chunked",
+      "vary": "accept-encoding,origin, access-control-request-method, access-control-request-headers",
+      "via": "1.1 75109f22d44404e68915a641fc09f102.cloudfront.net (CloudFront)",
+      "x-amz-cf-id": "Ff2KRsT0aZssaNOFaqHtb2014PtiLtH7QKG65u8_GSM6Irc2sJlf1A==",
+      "x-amz-cf-pop": "SFO53-P1",
+      "x-cache": "Error from cloudfront",
+      "x-content-type-options": "nosniff",
+      "x-ds-trace-id": "c2b0c2187ce634203b70afd7b4f06bdb"
+    },
+    "isStream": false,
+    "rawBody": "{\"error\":{\"message\":\"This model's maximum context length is 1048576 tokens. However, you requested 5440100 tokens (5440084 in the messages, 16 in the completion). Please reduce the length of the messages or completion. (request_id: 9a993ebe-18aa-4bde-becd-37f7461a68e7)\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+    "parsedJson": {
+      "error": {
+        "message": "This model's maximum context length is 1048576 tokens. However, you requested 5440100 tokens (5440084 in the messages, 16 in the completion). Please reduce the length of the messages or completion. (request_id: 9a993ebe-18aa-4bde-becd-37f7461a68e7)",
+        "type": "invalid_request_error",
+        "param": null,
+        "code": "invalid_request_error"
+      }
+    }
+  },
+  "analysis": {
+    "extractorUsage": null,
+    "estimatedCostCredits": null
+  }
+}

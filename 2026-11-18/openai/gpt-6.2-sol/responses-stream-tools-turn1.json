@@ -1,0 +1,536 @@
+{
+  "capturedAt": "2026-11-18T12:05:55.973Z",
+  "source": "cloudflare-ai-gateway",
+  "provider": "openai",
+  "modelId": "openai/gpt-6.2-sol",
+  "modelName": "gpt-6.2-sol",
+  "schema": "responses-v1",
+  "endpoint": "responses",
+  "scenario": "responses-stream-tools-turn1",
+  "request": {
+    "method": "POST",
+    "gatewayPath": "openai/responses",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "model": "gpt-6.2-sol",
+      "input": "Call lookup_status for service='billing', then summarize the result.",
+      "tools": [
+        {
+          "type": "function",
+          "name": "lookup_status",
+          "description": "Look up live service status by service code.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "service": {
+                "type": "string",
+                "description": "Service identifier such as billing or gateway"
+              }
+            },
+            "required": [
+              "service"
+            ],
+            "additionalProperties": false
+          }
+        }
+      ],
+      "tool_choice": "required",
+      "reasoning": {
+        "effort": "low"
+      },
+      "max_output_tokens": 256,
+      "stream": true,
+      "store": false,
+      "service_tier": "default"
+    }
+  },
+  "response": {
+    "status": 200,
+    "ok": true,
+    "headers": {
+      "access-control-expose-headers": "X-Request-ID, Server-Timing-Total, X-OpenAI-Inference-Capacity-Reason, CF-Ray, CF-Ray",
+      "cf-aig-cache-status": "MISS",
+      "cf-aig-event-id": "01a1ee8c-99c6-7533-867d-c06f40b13716",
+      "cf-aig-log-id": "01a1ee8c-99c6-7533-867d-c06f40b13716",
+      "cf-aig-request-id": "01a1ee8c-99c6-7533-867d-c06f40b13716",
+      "cf-aig-step": "0",
+      "cf-aig-trace-id": "eaafcba8caa24ae1b32455803a9691d0",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5c6d8960bb25f02-SJC",
+      "connection": "keep-alive",
+      "content-type": "text/event-stream; charset=utf-8",
+      "date": "Wed, 18 Nov 2026 12:05:54 GMT",
+      "openai-organization": "user-vnfct44mzu684h578pbwavmo",
+      "openai-processing-ms": "282",
+      "openai-project": "proj_0fVunpPWS4nTnpr04shNxqNR",
+      "openai-version": "2020-10-01",
+      "server": "cloudflare",
+      "set-cookie": "__cf_bm=EUqJB.gJg_ZA8wpRX90wHI44tPQwHJ3mJLTkwuKk9k0-1795003554.2449849-1.0.1.1-3NHoH9Xh7yXIcBQOtatLWBJ1nxpYtvdagaWipIHVQHff.dgjOctqZItG9S_bxuJuzWwTmGavXoEXxvdH6xSuAy.RgUWIvY_JlUs3r5pR.Nus6SyOIY5CzKGlwBoIXiJj; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=gateway.ai.cloudflare.com; Expires=Wed, 18 Nov 2026 12:35:54 GMT",
+      "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+      "transfer-encoding": "chunked",
+      "x-content-type-options": "nosniff",
+      "x-ratelimit-limit-requests": "15000",
+      "x-ratelimit-limit-tokens": "40000000",
+      "x-ratelimit-remaining-requests": "14999",
+      "x-ratelimit-remaining-tokens": "39999121",
+      "x-ratelimit-reset-requests": "4ms",
+      "x-ratelimit-reset-tokens": "1ms",
+      "x-request-id": "req_318344d7191041c9b39f6af3e1fa4cd2"
+    },
+    "isStream": true,
+    "rawBody": "event: response.created\ndata: {\"p\": \"b87be92\", \"type\":\"response.created\",\"response\":{\"id\":\"resp_06ca6e35e98d4953016afd94a24c6c87d0b9230766dbefa02e\",\"object\":\"response\",\"created_at\":1795003554,\"status\":\"in_progress\",\"access_programs\":{\"cyber\":\"standard\"},\"background\":false,\"completed_at\":null,\"error\":null,\"frequency_penalty\":0.0,\"image\":{\"context_compression\":\"disabled\"},\"incomplete_details\":null,\"input_transformations\":[],\"instructions\":null,\"max_output_tokens\":256,\"max_tool_calls\":null,\"model\":\"gpt-6.2-sol\",\"moderation\":null,\"output\":[],\"parallel_tool_calls\":true,\"presence_penalty\":0.0,\"previous_response_id\":null,\"prompt_cache_key\":null,\"prompt_cache_retention\":\"24h\",\"reasoning\":{\"context\":\"all_turns\",\"effort\":\"low\",\"mode\":\"standard\",\"summary\":null},\"safety_identifier\":null,\"service_tier\":\"default\",\"store\":false,\"temperature\":1.0,\"text\":{\"format\":{\"type\":\"text\"},\"verbosity\":\"medium\"},\"tool_choice\":\"required\",\"tool_usage\":{\"image_gen\":{\"input_tokens\":0,\"input_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"output_tokens\":0,\"output_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"total_tokens\":0},\"web_search\":{\"num_requests\":0}},\"tools\":[{\"type\":\"function\",\"description\":\"Look up live service status by service code.\",\"name\":\"lookup_status\",\"output_schema\":null,\"parameters\":{\"type\":\"object\",\"properties\":{\"service\":{\"type\":\"string\",\"description\":\"Service identifier such as billing or gateway\"}},\"required\":[\"service\"],\"additionalProperties\":false},\"strict\":true}],\"top_logprobs\":0,\"top_p\":1.0,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"metadata\":{}},\"sequence_number\":0}\n\nevent: response.in_progress\ndata: {\"p\": \"5787ae27\", \"type\":\"response.in_progress\",\"response\":{\"id\":\"resp_06ca6e35e98d4953016afd94a24c6c87d0b9230766dbefa02e\",\"object\":\"response\",\"created_at\":1795003554,\"status\":\"in_progress\",\"access_programs\":{\"cyber\":\"standard\"},\"background\":false,\"completed_at\":null,\"error\":null,\"frequency_penalty\":0.0,\"image\":{\"context_compression\":\"disabled\"},\"incomplete_details\":null,\"input_transformations\":[],\"instructions\":null,\"max_output_tokens\":256,\"max_tool_calls\":null,\"model\":\"gpt-6.2-sol\",\"moderation\":null,\"output\":[],\"parallel_tool_calls\":true,\"presence_penalty\":0.0,\"previous_response_id\":null,\"prompt_cache_key\":null,\"prompt_cache_retention\":\"24h\",\"reasoning\":{\"context\":\"all_turns\",\"effort\":\"low\",\"mode\":\"standard\",\"summary\":null},\"safety_identifier\":null,\"service_tier\":\"default\",\"store\":false,\"temperature\":1.0,\"text\":{\"format\":{\"type\":\"text\"},\"verbosity\":\"medium\"},\"tool_choice\":\"required\",\"tool_usage\":{\"image_gen\":{\"input_tokens\":0,\"input_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"output_tokens\":0,\"output_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"total_tokens\":0},\"web_search\":{\"num_requests\":0}},\"tools\":[{\"type\":\"function\",\"description\":\"Look up live service status by service code.\",\"name\":\"lookup_status\",\"output_schema\":null,\"parameters\":{\"type\":\"object\",\"properties\":{\"service\":{\"type\":\"string\",\"description\":\"Service identifier such as billing or gateway\"}},\"required\":[\"service\"],\"additionalProperties\":false},\"strict\":true}],\"top_logprobs\":0,\"top_p\":1.0,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"metadata\":{}},\"sequence_number\":1}\n\nevent: response.output_item.added\ndata: {\"p\": \"5c\", \"type\":\"response.output_item.added\",\"item\":{\"id\":\"fc_06ca6e35e98d4953016afd94a3879087d08795ed6813c0e0f1\",\"type\":\"function_call\",\"status\":\"in_progress\",\"arguments\":\"\",\"call_id\":\"call_mhDvm7AmkUPX10AIF2GeeQ5z\",\"name\":\"lookup_status\"},\"output_index\":0,\"sequence_number\":2}\n\nevent: response.function_call_arguments.delta\ndata: {\"p\": \"cf3536ea10b\", \"type\":\"response.function_call_arguments.delta\",\"delta\":\"{\\\"\",\"item_id\":\"fc_06ca6e35e98d4953016afd94a3879087d08795ed6813c0e0f1\",\"obfuscation\":\"tLRb9qraFTB0IE\",\"output_index\":0,\"sequence_number\":3}\n\nevent: response.function_call_arguments.delta\ndata: {\"p\": \"c34\", \"type\":\"response.function_call_arguments.delta\",\"delta\":\"service\",\"item_id\":\"fc_06ca6e35e98d4953016afd94a3879087d08795ed6813c0e0f1\",\"obfuscation\":\"cDFcQK4qi\",\"output_index\":0,\"sequence_number\":4}\n\nevent: response.function_call_arguments.delta\ndata: {\"p\": \"a971b061215e\", \"type\":\"response.function_call_arguments.delta\",\"delta\":\"\\\":\\\"\",\"item_id\":\"fc_06ca6e35e98d4953016afd94a3879087d08795ed6813c0e0f1\",\"obfuscation\":\"4wontEtAidgap\",\"output_index\":0,\"sequence_number\":5}\n\nevent: response.function_call_arguments.delta\ndata: {\"p\": \"8f8a9287cddba60\", \"type\":\"response.function_call_arguments.delta\",\"delta\":\"billing\",\"item_id\":\"fc_06ca6e35e98d4953016afd94a3879087d08795ed6813c0e0f1\",\"obfuscation\":\"EsEPI2kaw\",\"output_index\":0,\"sequence_number\":6}\n\nevent: response.function_call_arguments.delta\ndata: {\"p\": \"bb26dabf08c3bc5a\", \"type\":\"response.function_call_arguments.delta\",\"delta\":\"\\\"}\",\"item_id\":\"fc_06ca6e35e98d4953016afd94a3879087d08795ed6813c0e0f1\",\"obfuscation\":\"YdHDjbikWHV7bK\",\"output_index\":0,\"sequence_number\":7}\n\nevent: response.function_call_arguments.done\ndata: {\"p\": \"64223f5f4af25b5\", \"type\":\"response.function_call_arguments.done\",\"arguments\":\"{\\\"service\\\":\\\"billing\\\"}\",\"item_id\":\"fc_06ca6e35e98d4953016afd94a3879087d08795ed6813c0e0f1\",\"output_index\":0,\"sequence_number\":8}\n\nevent: response.output_item.done\ndata: {\"p\": \"42145a06b\", \"type\":\"response.output_item.done\",\"item\":{\"id\":\"fc_06ca6e35e98d4953016afd94a3879087d08795ed6813c0e0f1\",\"type\":\"function_call\",\"status\":\"completed\",\"arguments\":\"{\\\"service\\\":\\\"billing\\\"}\",\"call_id\":\"call_mhDvm7AmkUPX10AIF2GeeQ5z\",\"name\":\"lookup_status\"},\"output_index\":0,\"sequence_number\":9}\n\nevent: response.completed\ndata: {\"p\": \"cb9548bc25a3cd\", \"type\":\"response.completed\",\"response\":{\"id\":\"resp_06ca6e35e98d4953016afd94a24c6c87d0b9230766dbefa02e\",\"object\":\"response\",\"created_at\":1795003554,\"status\":\"completed\",\"access_programs\":{\"cyber\":\"standard\"},\"background\":false,\"completed_at\":1795003555,\"error\":null,\"frequency_penalty\":0.0,\"image\":{\"context_compression\":\"disabled\"},\"incomplete_details\":null,\"input_transformations\":[],\"instructions\":null,\"max_output_tokens\":256,\"max_tool_calls\":null,\"model\":\"gpt-6.2-sol\",\"moderation\":null,\"output\":[{\"id\":\"fc_06ca6e35e98d4953016afd94a3879087d08795ed6813c0e0f1\",\"type\":\"function_call\",\"status\":\"completed\",\"arguments\":\"{\\\"service\\\":\\\"billing\\\"}\",\"call_id\":\"call_mhDvm7AmkUPX10AIF2GeeQ5z\",\"name\":\"lookup_status\"}],\"parallel_tool_calls\":true,\"presence_penalty\":0.0,\"previous_response_id\":null,\"prompt_cache_key\":null,\"prompt_cache_retention\":\"24h\",\"reasoning\":{\"context\":\"all_turns\",\"effort\":\"low\",\"mode\":\"standard\",\"summary\":null},\"safety_identifier\":null,\"service_tier\":\"default\",\"store\":false,\"temperature\":1.0,\"text\":{\"format\":{\"type\":\"text\"},\"verbosity\":\"medium\"},\"tool_choice\":\"required\",\"tool_usage\":{\"image_gen\":{\"input_tokens\":0,\"input_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"output_tokens\":0,\"output_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"total_tokens\":0},\"web_search\":{\"num_requests\":0}},\"tools\":[{\"type\":\"function\",\"description\":\"Look up live service status by service code.\",\"name\":\"lookup_status\",\"output_schema\":null,\"parameters\":{\"type\":\"object\",\"properties\":{\"service\":{\"type\":\"string\",\"description\":\"Service identifier such as billing or gateway\"}},\"required\":[\"service\"],\"additionalProperties\":false},\"strict\":true}],\"top_logprobs\":0,\"top_p\":1.0,\"truncation\":\"disabled\",\"usage\":{\"input_tokens\":77,\"input_tokens_details\":{\"cache_write_tokens\":0,\"cache_write_tokens_details\":{\"ttl_12h_tokens\":0,\"ttl_30m_tokens\":0},\"cached_tokens\":0},\"output_tokens\":18,\"output_tokens_details\":{\"reasoning_tokens\":0},\"total_tokens\":95},\"user\":null,\"metadata\":{}},\"sequence_number\":10}\n\n",
+    "sseFrames": [
+      {
+        "event": "response.created",
+        "data": "{\"p\": \"b87be92\", \"type\":\"response.created\",\"response\":{\"id\":\"resp_06ca6e35e98d4953016afd94a24c6c87d0b9230766dbefa02e\",\"object\":\"response\",\"created_at\":1795003554,\"status\":\"in_progress\",\"access_programs\":{\"cyber\":\"standard\"},\"background\":false,\"completed_at\":null,\"error\":null,\"frequency_penalty\":0.0,\"image\":{\"context_compression\":\"disabled\"},\"incomplete_details\":null,\"input_transformations\":[],\"instructions\":null,\"max_output_tokens\":256,\"max_tool_calls\":null,\"model\":\"gpt-6.2-sol\",\"moderation\":null,\"output\":[],\"parallel_tool_calls\":true,\"presence_penalty\":0.0,\"previous_response_id\":null,\"prompt_cache_key\":null,\"prompt_cache_retention\":\"24h\",\"reasoning\":{\"context\":\"all_turns\",\"effort\":\"low\",\"mode\":\"standard\",\"summary\":null},\"safety_identifier\":null,\"service_tier\":\"default\",\"store\":false,\"temperature\":1.0,\"text\":{\"format\":{\"type\":\"text\"},\"verbosity\":\"medium\"},\"tool_choice\":\"required\",\"tool_usage\":{\"image_gen\":{\"input_tokens\":0,\"input_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"output_tokens\":0,\"output_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"total_tokens\":0},\"web_search\":{\"num_requests\":0}},\"tools\":[{\"type\":\"function\",\"description\":\"Look up live service status by service code.\",\"name\":\"lookup_status\",\"output_schema\":null,\"parameters\":{\"type\":\"object\",\"properties\":{\"service\":{\"type\":\"string\",\"description\":\"Service identifier such as billing or gateway\"}},\"required\":[\"service\"],\"additionalProperties\":false},\"strict\":true}],\"top_logprobs\":0,\"top_p\":1.0,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"metadata\":{}},\"sequence_number\":0}",
+        "parsed": {
+          "p": "b87be92",
+          "type": "response.created",
+          "response": {
+            "id": "resp_06ca6e35e98d4953016afd94a24c6c87d0b9230766dbefa02e",
+            "object": "response",
+            "created_at": 1795003554,
+            "status": "in_progress",
+            "access_programs": {
+              "cyber": "standard"
+            },
+            "background": false,
+            "completed_at": null,
+            "error": null,
+            "frequency_penalty": 0,
+            "image": {
+              "context_compression": "disabled"
+            },
+            "incomplete_details": null,
+            "input_transformations": [],
+            "instructions": null,
+            "max_output_tokens": 256,
+            "max_tool_calls": null,
+            "model": "gpt-6.2-sol",
+            "moderation": null,
+            "output": [],
+            "parallel_tool_calls": true,
+            "presence_penalty": 0,
+            "previous_response_id": null,
+            "prompt_cache_key": null,
+            "prompt_cache_retention": "24h",
+            "reasoning": {
+              "context": "all_turns",
+              "effort": "low",
+              "mode": "standard",
+              "summary": null
+            },
+            "safety_identifier": null,
+            "service_tier": "default",
+            "store": false,
+            "temperature": 1,
+            "text": {
+              "format": {
+                "type": "text"
+              },
+              "verbosity": "medium"
+            },
+            "tool_choice": "required",
+            "tool_usage": {
+              "image_gen": {
+                "input_tokens": 0,
+                "input_tokens_details": {
+                  "image_tokens": 0,
+                  "text_tokens": 0
+                },
+                "output_tokens": 0,
+                "output_tokens_details": {
+                  "image_tokens": 0,
+                  "text_tokens": 0
+                },
+                "total_tokens": 0
+              },
+              "web_search": {
+                "num_requests": 0
+              }
+            },
+            "tools": [
+              {
+                "type": "function",
+                "description": "Look up live service status by service code.",
+                "name": "lookup_status",
+                "output_schema": null,
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "service": {
+                      "type": "string",
+                      "description": "Service identifier such as billing or gateway"
+                    }
+                  },
+                  "required": [
+                    "service"
+                  ],
+                  "additionalProperties": false
+                },
+                "strict": true
+              }
+            ],
+            "top_logprobs": 0,
+            "top_p": 1,
+            "truncation": "disabled",
+            "usage": null,
+            "user": null,
+            "metadata": {}
+          },
+          "sequence_number": 0
+        }
+      },
+      {
+        "event": "response.in_progress",
+        "data": "{\"p\": \"5787ae27\", \"type\":\"response.in_progress\",\"response\":{\"id\":\"resp_06ca6e35e98d4953016afd94a24c6c87d0b9230766dbefa02e\",\"object\":\"response\",\"created_at\":1795003554,\"status\":\"in_progress\",\"access_programs\":{\"cyber\":\"standard\"},\"background\":false,\"completed_at\":null,\"error\":null,\"frequency_penalty\":0.0,\"image\":{\"context_compression\":\"disabled\"},\"incomplete_details\":null,\"input_transformations\":[],\"instructions\":null,\"max_output_tokens\":256,\"max_tool_calls\":null,\"model\":\"gpt-6.2-sol\",\"moderation\":null,\"output\":[],\"parallel_tool_calls\":true,\"presence_penalty\":0.0,\"previous_response_id\":null,\"prompt_cache_key\":null,\"prompt_cache_retention\":\"24h\",\"reasoning\":{\"context\":\"all_turns\",\"effort\":\"low\",\"mode\":\"standard\",\"summary\":null},\"safety_identifier\":null,\"service_tier\":\"default\",\"store\":false,\"temperature\":1.0,\"text\":{\"format\":{\"type\":\"text\"},\"verbosity\":\"medium\"},\"tool_choice\":\"required\",\"tool_usage\":{\"image_gen\":{\"input_tokens\":0,\"input_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"output_tokens\":0,\"output_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"total_tokens\":0},\"web_search\":{\"num_requests\":0}},\"tools\":[{\"type\":\"function\",\"description\":\"Look up live service status by service code.\",\"name\":\"lookup_status\",\"output_schema\":null,\"parameters\":{\"type\":\"object\",\"properties\":{\"service\":{\"type\":\"string\",\"description\":\"Service identifier such as billing or gateway\"}},\"required\":[\"service\"],\"additionalProperties\":false},\"strict\":true}],\"top_logprobs\":0,\"top_p\":1.0,\"truncation\":\"disabled\",\"usage\":null,\"user\":null,\"metadata\":{}},\"sequence_number\":1}",
+        "parsed": {
+          "p": "5787ae27",
+          "type": "response.in_progress",
+          "response": {
+            "id": "resp_06ca6e35e98d4953016afd94a24c6c87d0b9230766dbefa02e",
+            "object": "response",
+            "created_at": 1795003554,
+            "status": "in_progress",
+            "access_programs": {
+              "cyber": "standard"
+            },
+            "background": false,
+            "completed_at": null,
+            "error": null,
+            "frequency_penalty": 0,
+            "image": {
+              "context_compression": "disabled"
+            },
+            "incomplete_details": null,
+            "input_transformations": [],
+            "instructions": null,
+            "max_output_tokens": 256,
+            "max_tool_calls": null,
+            "model": "gpt-6.2-sol",
+            "moderation": null,
+            "output": [],
+            "parallel_tool_calls": true,
+            "presence_penalty": 0,
+            "previous_response_id": null,
+            "prompt_cache_key": null,
+            "prompt_cache_retention": "24h",
+            "reasoning": {
+              "context": "all_turns",
+              "effort": "low",
+              "mode": "standard",
+              "summary": null
+            },
+            "safety_identifier": null,
+            "service_tier": "default",
+            "store": false,
+            "temperature": 1,
+            "text": {
+              "format": {
+                "type": "text"
+              },
+              "verbosity": "medium"
+            },
+            "tool_choice": "required",
+            "tool_usage": {
+              "image_gen": {
+                "input_tokens": 0,
+                "input_tokens_details": {
+                  "image_tokens": 0,
+                  "text_tokens": 0
+                },
+                "output_tokens": 0,
+                "output_tokens_details": {
+                  "image_tokens": 0,
+                  "text_tokens": 0
+                },
+                "total_tokens": 0
+              },
+              "web_search": {
+                "num_requests": 0
+              }
+            },
+            "tools": [
+              {
+                "type": "function",
+                "description": "Look up live service status by service code.",
+                "name": "lookup_status",
+                "output_schema": null,
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "service": {
+                      "type": "string",
+                      "description": "Service identifier such as billing or gateway"
+                    }
+                  },
+                  "required": [
+                    "service"
+                  ],
+                  "additionalProperties": false
+                },
+                "strict": true
+              }
+            ],
+            "top_logprobs": 0,
+            "top_p": 1,
+            "truncation": "disabled",
+            "usage": null,
+            "user": null,
+            "metadata": {}
+          },
+          "sequence_number": 1
+        }
+      },
+      {
+        "event": "response.output_item.added",
+        "data": "{\"p\": \"5c\", \"type\":\"response.output_item.added\",\"item\":{\"id\":\"fc_06ca6e35e98d4953016afd94a3879087d08795ed6813c0e0f1\",\"type\":\"function_call\",\"status\":\"in_progress\",\"arguments\":\"\",\"call_id\":\"call_mhDvm7AmkUPX10AIF2GeeQ5z\",\"name\":\"lookup_status\"},\"output_index\":0,\"sequence_number\":2}",
+        "parsed": {
+          "p": "5c",
+          "type": "response.output_item.added",
+          "item": {
+            "id": "fc_06ca6e35e98d4953016afd94a3879087d08795ed6813c0e0f1",
+            "type": "function_call",
+            "status": "in_progress",
+            "arguments": "",
+            "call_id": "call_mhDvm7AmkUPX10AIF2GeeQ5z",
+            "name": "lookup_status"
+          },
+          "output_index": 0,
+          "sequence_number": 2
+        }
+      },
+      {
+        "event": "response.function_call_arguments.delta",
+        "data": "{\"p\": \"cf3536ea10b\", \"type\":\"response.function_call_arguments.delta\",\"delta\":\"{\\\"\",\"item_id\":\"fc_06ca6e35e98d4953016afd94a3879087d08795ed6813c0e0f1\",\"obfuscation\":\"tLRb9qraFTB0IE\",\"output_index\":0,\"sequence_number\":3}",
+        "parsed": {
+          "p": "cf3536ea10b",
+          "type": "response.function_call_arguments.delta",
+          "delta": "{\"",
+          "item_id": "fc_06ca6e35e98d4953016afd94a3879087d08795ed6813c0e0f1",
+          "obfuscation": "tLRb9qraFTB0IE",
+          "output_index": 0,
+          "sequence_number": 3
+        }
+      },
+      {
+        "event": "response.function_call_arguments.delta",
+        "data": "{\"p\": \"c34\", \"type\":\"response.function_call_arguments.delta\",\"delta\":\"service\",\"item_id\":\"fc_06ca6e35e98d4953016afd94a3879087d08795ed6813c0e0f1\",\"obfuscation\":\"cDFcQK4qi\",\"output_index\":0,\"sequence_number\":4}",
+        "parsed": {
+          "p": "c34",
+          "type": "response.function_call_arguments.delta",
+          "delta": "service",
+          "item_id": "fc_06ca6e35e98d4953016afd94a3879087d08795ed6813c0e0f1",
+          "obfuscation": "cDFcQK4qi",
+          "output_index": 0,
+          "sequence_number": 4
+        }
+      },
+      {
+        "event": "response.function_call_arguments.delta",
+        "data": "{\"p\": \"a971b061215e\", \"type\":\"response.function_call_arguments.delta\",\"delta\":\"\\\":\\\"\",\"item_id\":\"fc_06ca6e35e98d4953016afd94a3879087d08795ed6813c0e0f1\",\"obfuscation\":\"4wontEtAidgap\",\"output_index\":0,\"sequence_number\":5}",
+        "parsed": {
+          "p": "a971b061215e",
+          "type": "response.function_call_arguments.delta",
+          "delta": "\":\"",
+          "item_id": "fc_06ca6e35e98d4953016afd94a3879087d08795ed6813c0e0f1",
+          "obfuscation": "4wontEtAidgap",
+          "output_index": 0,
+          "sequence_number": 5
+        }
+      },
+      {
+        "event": "response.function_call_arguments.delta",
+        "data": "{\"p\": \"8f8a9287cddba60\", \"type\":\"response.function_call_arguments.delta\",\"delta\":\"billing\",\"item_id\":\"fc_06ca6e35e98d4953016afd94a3879087d08795ed6813c0e0f1\",\"obfuscation\":\"EsEPI2kaw\",\"output_index\":0,\"sequence_number\":6}",
+        "parsed": {
+          "p": "8f8a9287cddba60",
+          "type": "response.function_call_arguments.delta",
+          "delta": "billing",
+          "item_id": "fc_06ca6e35e98d4953016afd94a3879087d08795ed6813c0e0f1",
+          "obfuscation": "EsEPI2kaw",
+          "output_index": 0,
+          "sequence_number": 6
+        }
+      },
+      {
+        "event": "response.function_call_arguments.delta",
+        "data": "{\"p\": \"bb26dabf08c3bc5a\", \"type\":\"response.function_call_arguments.delta\",\"delta\":\"\\\"}\",\"item_id\":\"fc_06ca6e35e98d4953016afd94a3879087d08795ed6813c0e0f1\",\"obfuscation\":\"YdHDjbikWHV7bK\",\"output_index\":0,\"sequence_number\":7}",
+        "parsed": {
+          "p": "bb26dabf08c3bc5a",
+          "type": "response.function_call_arguments.delta",
+          "delta": "\"}",
+          "item_id": "fc_06ca6e35e98d4953016afd94a3879087d08795ed6813c0e0f1",
+          "obfuscation": "YdHDjbikWHV7bK",
+          "output_index": 0,
+          "sequence_number": 7
+        }
+      },
+      {
+        "event": "response.function_call_arguments.done",
+        "data": "{\"p\": \"64223f5f4af25b5\", \"type\":\"response.function_call_arguments.done\",\"arguments\":\"{\\\"service\\\":\\\"billing\\\"}\",\"item_id\":\"fc_06ca6e35e98d4953016afd94a3879087d08795ed6813c0e0f1\",\"output_index\":0,\"sequence_number\":8}",
+        "parsed": {
+          "p": "64223f5f4af25b5",
+          "type": "response.function_call_arguments.done",
+          "arguments": "{\"service\":\"billing\"}",
+          "item_id": "fc_06ca6e35e98d4953016afd94a3879087d08795ed6813c0e0f1",
+          "output_index": 0,
+          "sequence_number": 8
+        }
+      },
+      {
+        "event": "response.output_item.done",
+        "data": "{\"p\": \"42145a06b\", \"type\":\"response.output_item.done\",\"item\":{\"id\":\"fc_06ca6e35e98d4953016afd94a3879087d08795ed6813c0e0f1\",\"type\":\"function_call\",\"status\":\"completed\",\"arguments\":\"{\\\"service\\\":\\\"billing\\\"}\",\"call_id\":\"call_mhDvm7AmkUPX10AIF2GeeQ5z\",\"name\":\"lookup_status\"},\"output_index\":0,\"sequence_number\":9}",
+        "parsed": {
+          "p": "42145a06b",
+          "type": "response.output_item.done",
+          "item": {
+            "id": "fc_06ca6e35e98d4953016afd94a3879087d08795ed6813c0e0f1",
+            "type": "function_call",
+            "status": "completed",
+            "arguments": "{\"service\":\"billing\"}",
+            "call_id": "call_mhDvm7AmkUPX10AIF2GeeQ5z",
+            "name": "lookup_status"
+          },
+          "output_index": 0,
+          "sequence_number": 9
+        }
+      },
+      {
+        "event": "response.completed",
+        "data": "{\"p\": \"cb9548bc25a3cd\", \"type\":\"response.completed\",\"response\":{\"id\":\"resp_06ca6e35e98d4953016afd94a24c6c87d0b9230766dbefa02e\",\"object\":\"response\",\"created_at\":1795003554,\"status\":\"completed\",\"access_programs\":{\"cyber\":\"standard\"},\"background\":false,\"completed_at\":1795003555,\"error\":null,\"frequency_penalty\":0.0,\"image\":{\"context_compression\":\"disabled\"},\"incomplete_details\":null,\"input_transformations\":[],\"instructions\":null,\"max_output_tokens\":256,\"max_tool_calls\":null,\"model\":\"gpt-6.2-sol\",\"moderation\":null,\"output\":[{\"id\":\"fc_06ca6e35e98d4953016afd94a3879087d08795ed6813c0e0f1\",\"type\":\"function_call\",\"status\":\"completed\",\"arguments\":\"{\\\"service\\\":\\\"billing\\\"}\",\"call_id\":\"call_mhDvm7AmkUPX10AIF2GeeQ5z\",\"name\":\"lookup_status\"}],\"parallel_tool_calls\":true,\"presence_penalty\":0.0,\"previous_response_id\":null,\"prompt_cache_key\":null,\"prompt_cache_retention\":\"24h\",\"reasoning\":{\"context\":\"all_turns\",\"effort\":\"low\",\"mode\":\"standard\",\"summary\":null},\"safety_identifier\":null,\"service_tier\":\"default\",\"store\":false,\"temperature\":1.0,\"text\":{\"format\":{\"type\":\"text\"},\"verbosity\":\"medium\"},\"tool_choice\":\"required\",\"tool_usage\":{\"image_gen\":{\"input_tokens\":0,\"input_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"output_tokens\":0,\"output_tokens_details\":{\"image_tokens\":0,\"text_tokens\":0},\"total_tokens\":0},\"web_search\":{\"num_requests\":0}},\"tools\":[{\"type\":\"function\",\"description\":\"Look up live service status by service code.\",\"name\":\"lookup_status\",\"output_schema\":null,\"parameters\":{\"type\":\"object\",\"properties\":{\"service\":{\"type\":\"string\",\"description\":\"Service identifier such as billing or gateway\"}},\"required\":[\"service\"],\"additionalProperties\":false},\"strict\":true}],\"top_logprobs\":0,\"top_p\":1.0,\"truncation\":\"disabled\",\"usage\":{\"input_tokens\":77,\"input_tokens_details\":{\"cache_write_tokens\":0,\"cache_write_tokens_details\":{\"ttl_12h_tokens\":0,\"ttl_30m_tokens\":0},\"cached_tokens\":0},\"output_tokens\":18,\"output_tokens_details\":{\"reasoning_tokens\":0},\"total_tokens\":95},\"user\":null,\"metadata\":{}},\"sequence_number\":10}",
+        "parsed": {
+          "p": "cb9548bc25a3cd",
+          "type": "response.completed",
+          "response": {
+            "id": "resp_06ca6e35e98d4953016afd94a24c6c87d0b9230766dbefa02e",
+            "object": "response",
+            "created_at": 1795003554,
+            "status": "completed",
+            "access_programs": {
+              "cyber": "standard"
+            },
+            "background": false,
+            "completed_at": 1795003555,
+            "error": null,
+            "frequency_penalty": 0,
+            "image": {
+              "context_compression": "disabled"
+            },
+            "incomplete_details": null,
+            "input_transformations": [],
+            "instructions": null,
+            "max_output_tokens": 256,
+            "max_tool_calls": null,
+            "model": "gpt-6.2-sol",
+            "moderation": null,
+            "output": [
+              {
+                "id": "fc_06ca6e35e98d4953016afd94a3879087d08795ed6813c0e0f1",
+                "type": "function_call",
+                "status": "completed",
+                "arguments": "{\"service\":\"billing\"}",
+                "call_id": "call_mhDvm7AmkUPX10AIF2GeeQ5z",
+                "name": "lookup_status"
+              }
+            ],
+            "parallel_tool_calls": true,
+            "presence_penalty": 0,
+            "previous_response_id": null,
+            "prompt_cache_key": null,
+            "prompt_cache_retention": "24h",
+            "reasoning": {
+              "context": "all_turns",
+              "effort": "low",
+              "mode": "standard",
+              "summary": null
+            },
+            "safety_identifier": null,
+            "service_tier": "default",
+            "store": false,
+            "temperature": 1,
+            "text": {
+              "format": {
+                "type": "text"
+              },
+              "verbosity": "medium"
+            },
+            "tool_choice": "required",
+            "tool_usage": {
+              "image_gen": {
+                "input_tokens": 0,
+                "input_tokens_details": {
+                  "image_tokens": 0,
+                  "text_tokens": 0
+                },
+                "output_tokens": 0,
+                "output_tokens_details": {
+                  "image_tokens": 0,
+                  "text_tokens": 0
+                },
+                "total_tokens": 0
+              },
+              "web_search": {
+                "num_requests": 0
+              }
+            },
+            "tools": [
+              {
+                "type": "function",
+                "description": "Look up live service status by service code.",
+                "name": "lookup_status",
+                "output_schema": null,
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "service": {
+                      "type": "string",
+                      "description": "Service identifier such as billing or gateway"
+                    }
+                  },
+                  "required": [
+                    "service"
+                  ],
+                  "additionalProperties": false
+                },
+                "strict": true
+              }
+            ],
+            "top_logprobs": 0,
+            "top_p": 1,
+            "truncation": "disabled",
+            "usage": {
+              "input_tokens": 77,
+              "input_tokens_details": {
+                "cache_write_tokens": 0,
+                "cache_write_tokens_details": {
+                  "ttl_12h_tokens": 0,
+                  "ttl_30m_tokens": 0
+                },
+                "cached_tokens": 0
+              },
+              "output_tokens": 18,
+              "output_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "total_tokens": 95
+            },
+            "user": null,
+            "metadata": {}
+          },
+          "sequence_number": 10
+        }
+      }
+    ]
+  },
+  "analysis": {
+    "extractorUsage": {
+      "inputTokens": 77,
+      "outputTokens": 18,
+      "cacheRead": 0,
+      "cacheWrite": 0
+    },
+    "estimatedCostCredits": 33400
+  }
+}

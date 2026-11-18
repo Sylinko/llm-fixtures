@@ -1,0 +1,220 @@
+{
+  "capturedAt": "2026-11-18T11:58:41.577Z",
+  "source": "cloudflare-ai-gateway",
+  "provider": "custom-minimax",
+  "modelId": "minimax/MiniMax-M3.1-Flash",
+  "modelName": "MiniMax-M3.1-Flash",
+  "schema": "messages-2023-06-01",
+  "endpoint": "anthropic/v1/messages",
+  "scenario": "messages-stream-tools-turn2",
+  "request": {
+    "method": "POST",
+    "gatewayPath": "custom-minimax/anthropic/v1/messages",
+    "headers": {
+      "content-type": "application/json",
+      "anthropic-version": "2023-06-01"
+    },
+    "body": {
+      "model": "MiniMax-M3.1-Flash",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Call lookup_status with service='gateway', then summarize."
+        },
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "I'll check the gateway service status now."
+            },
+            {
+              "type": "tool_use",
+              "id": "chatcmpl-tool-887486a9cd0d9290",
+              "name": "lookup_status",
+              "input": {
+                "service": "gateway"
+              }
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "tool_result",
+              "tool_use_id": "chatcmpl-tool-887486a9cd0d9290",
+              "content": "{\"status\":\"healthy\",\"latencyMs\":12}"
+            }
+          ]
+        }
+      ],
+      "tools": [
+        {
+          "name": "lookup_status",
+          "description": "Look up live service status by service code.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "service": {
+                "type": "string",
+                "description": "Service identifier such as billing or gateway"
+              }
+            },
+            "required": [
+              "service"
+            ]
+          }
+        }
+      ],
+      "max_tokens": 256,
+      "stream": true
+    }
+  },
+  "response": {
+    "status": 200,
+    "ok": true,
+    "headers": {
+      "access-control-allow-origin": "*",
+      "alb_receive_time": "1795003118.676",
+      "alb_request_id": "36a56f8dbbbe13c2c8a5485b247eff37093c2aa7",
+      "cache-control": "max-age=0, no-cache, no-store",
+      "cf-aig-cache-status": "MISS",
+      "cf-aig-event-id": "01a1ee85-f34f-757e-bd0d-2e83550f152f",
+      "cf-aig-log-id": "01a1ee85-f34f-757e-bd0d-2e83550f152f",
+      "cf-aig-request-id": "01a1ee85-f34f-757e-bd0d-2e83550f152f",
+      "cf-aig-step": "0",
+      "cf-aig-trace-id": "b7b4ab52bab547b4a2c8370ce69d1b1e",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5c6cdf2192dcb6f-SJC",
+      "connection": "keep-alive",
+      "content-type": "text/event-stream; charset=utf-8",
+      "date": "Wed, 18 Nov 2026 11:58:41 GMT",
+      "expires": "Wed, 18 Nov 2026 11:58:41 GMT",
+      "minimax-request-id": "5e4a66b08ff8645498b03a6ae4f873d7",
+      "pragma": "no-cache",
+      "server": "cloudflare",
+      "set-cookie": "__cf_bm=T0UDiYmv2IHeYiWJPiURYQEmvdGMZbC87O1SPPoGfj8-1795003118.413276-1.0.1.1-vWqBizkfLtiXsA7yXyySVUlRneDHCo05cGd3wOm8r89csbkpe_Ky9hNhePv01RRgX0Bnq9NW8MlUxVBEtLYjYdmUNdN_mFJfPE8YrYCKDaDUqNRyu9N51fqLrYVQOTQL; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=gateway.ai.cloudflare.com; Expires=Wed, 18 Nov 2026 12:28:41 GMT",
+      "trace-id": "074cc5eed67f8e061292798118c72637",
+      "transfer-encoding": "chunked",
+      "vary": "Accept-Encoding",
+      "x-from": "ak",
+      "x-mm-request-id": "2038073520180704206_17950031189mx5kj",
+      "x-session-id": "3fdabb5cdf4b3096f84a9d0bbdec3c81"
+    },
+    "isStream": true,
+    "rawBody": "event: message_start\ndata: {\"p\": \"03efee5\", \"type\":\"message_start\",\"message\":{\"id\":\"074cc5eed67f8e061292798118c72637\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"model\":\"MiniMax-M3.1-Flash\",\"stop_reason\":null,\"stop_sequence\":null,\"usage\":{\"input_tokens\":0,\"output_tokens\":0}}}\n\nevent: ping\ndata: {\"p\": \"32093d7a42d1c76\", \"type\":\"ping\"}\n\nevent: content_block_start\ndata: {\"p\": \"9e95095277208094\", \"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}}\n\nevent: content_block_delta\ndata: {\"p\": \"79fc0a86806e\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"**Gateway status: healthy**\\n\\n- **Status:** healthy\\n- **Latency:** 12 ms\\n\\nThe\"}}\n\nevent: content_block_delta\ndata: {\"p\": \"2c909586\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" gateway is operating normally with low response latency — no incidents or degradation reported.\"}}\n\nevent: content_block_stop\ndata: {\"p\": \"2ef17\", \"type\":\"content_block_stop\",\"index\":0}\n\nevent: message_delta\ndata: {\"p\": \"c9\", \"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\"},\"usage\":{\"input_tokens\":258,\"output_tokens\":39,\"cache_read_input_tokens\":256}}\n\nevent: message_stop\ndata: {\"p\": \"4ec3076414a70823\", \"type\":\"message_stop\"}\n\n",
+    "sseFrames": [
+      {
+        "event": "message_start",
+        "data": "{\"p\": \"03efee5\", \"type\":\"message_start\",\"message\":{\"id\":\"074cc5eed67f8e061292798118c72637\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"model\":\"MiniMax-M3.1-Flash\",\"stop_reason\":null,\"stop_sequence\":null,\"usage\":{\"input_tokens\":0,\"output_tokens\":0}}}",
+        "parsed": {
+          "p": "03efee5",
+          "type": "message_start",
+          "message": {
+            "id": "074cc5eed67f8e061292798118c72637",
+            "type": "message",
+            "role": "assistant",
+            "content": [],
+            "model": "MiniMax-M3.1-Flash",
+            "stop_reason": null,
+            "stop_sequence": null,
+            "usage": {
+              "input_tokens": 0,
+              "output_tokens": 0
+            }
+          }
+        }
+      },
+      {
+        "event": "ping",
+        "data": "{\"p\": \"32093d7a42d1c76\", \"type\":\"ping\"}",
+        "parsed": {
+          "p": "32093d7a42d1c76",
+          "type": "ping"
+        }
+      },
+      {
+        "event": "content_block_start",
+        "data": "{\"p\": \"9e95095277208094\", \"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}}",
+        "parsed": {
+          "p": "9e95095277208094",
+          "type": "content_block_start",
+          "index": 0,
+          "content_block": {
+            "type": "text",
+            "text": ""
+          }
+        }
+      },
+      {
+        "event": "content_block_delta",
+        "data": "{\"p\": \"79fc0a86806e\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"**Gateway status: healthy**\\n\\n- **Status:** healthy\\n- **Latency:** 12 ms\\n\\nThe\"}}",
+        "parsed": {
+          "p": "79fc0a86806e",
+          "type": "content_block_delta",
+          "index": 0,
+          "delta": {
+            "type": "text_delta",
+            "text": "**Gateway status: healthy**\n\n- **Status:** healthy\n- **Latency:** 12 ms\n\nThe"
+          }
+        }
+      },
+      {
+        "event": "content_block_delta",
+        "data": "{\"p\": \"2c909586\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" gateway is operating normally with low response latency — no incidents or degradation reported.\"}}",
+        "parsed": {
+          "p": "2c909586",
+          "type": "content_block_delta",
+          "index": 0,
+          "delta": {
+            "type": "text_delta",
+            "text": " gateway is operating normally with low response latency — no incidents or degradation reported."
+          }
+        }
+      },
+      {
+        "event": "content_block_stop",
+        "data": "{\"p\": \"2ef17\", \"type\":\"content_block_stop\",\"index\":0}",
+        "parsed": {
+          "p": "2ef17",
+          "type": "content_block_stop",
+          "index": 0
+        }
+      },
+      {
+        "event": "message_delta",
+        "data": "{\"p\": \"c9\", \"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"end_turn\"},\"usage\":{\"input_tokens\":258,\"output_tokens\":39,\"cache_read_input_tokens\":256}}",
+        "parsed": {
+          "p": "c9",
+          "type": "message_delta",
+          "delta": {
+            "stop_reason": "end_turn"
+          },
+          "usage": {
+            "input_tokens": 258,
+            "output_tokens": 39,
+            "cache_read_input_tokens": 256
+          }
+        }
+      },
+      {
+        "event": "message_stop",
+        "data": "{\"p\": \"4ec3076414a70823\", \"type\":\"message_stop\"}",
+        "parsed": {
+          "p": "4ec3076414a70823",
+          "type": "message_stop"
+        }
+      }
+    ]
+  },
+  "analysis": {
+    "extractorUsage": {
+      "inputTokens": 514,
+      "outputTokens": 39,
+      "cacheRead": 256,
+      "cacheWrite": 0
+    },
+    "estimatedCostCredits": 6594
+  }
+}

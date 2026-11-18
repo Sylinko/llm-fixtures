@@ -1,0 +1,315 @@
+{
+  "capturedAt": "2026-11-18T11:58:50.600Z",
+  "source": "cloudflare-ai-gateway",
+  "provider": "custom-minimax",
+  "modelId": "minimax/MiniMax-M3",
+  "modelName": "MiniMax-M3",
+  "schema": "messages-2023-06-01",
+  "endpoint": "anthropic/v1/messages",
+  "scenario": "messages-stream-tools-turn1",
+  "request": {
+    "method": "POST",
+    "gatewayPath": "custom-minimax/anthropic/v1/messages",
+    "headers": {
+      "content-type": "application/json",
+      "anthropic-version": "2023-06-01"
+    },
+    "body": {
+      "model": "MiniMax-M3",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Call lookup_status with service='gateway', then summarize."
+        }
+      ],
+      "tools": [
+        {
+          "name": "lookup_status",
+          "description": "Look up live service status by service code.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "service": {
+                "type": "string",
+                "description": "Service identifier such as billing or gateway"
+              }
+            },
+            "required": [
+              "service"
+            ]
+          }
+        }
+      ],
+      "tool_choice": {
+        "type": "tool",
+        "name": "lookup_status"
+      },
+      "max_tokens": 256,
+      "stream": true
+    }
+  },
+  "response": {
+    "status": 200,
+    "ok": true,
+    "headers": {
+      "access-control-allow-origin": "*",
+      "alb_receive_time": "1795003129.518",
+      "alb_request_id": "0a897246b5c3ca2c475181e6cdada32513caaedb",
+      "cache-control": "max-age=0, no-cache, no-store",
+      "cf-aig-cache-status": "MISS",
+      "cf-aig-event-id": "01a1ee86-1e29-7064-b3d4-fb390a9610d4",
+      "cf-aig-log-id": "01a1ee86-1e29-7064-b3d4-fb390a9610d4",
+      "cf-aig-request-id": "01a1ee86-1e29-7064-b3d4-fb390a9610d4",
+      "cf-aig-step": "0",
+      "cf-aig-trace-id": "916e351d04624bb59b5be810d92c15f0",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5c6ce36ad7ded3e-SJC",
+      "connection": "keep-alive",
+      "content-type": "text/event-stream; charset=utf-8",
+      "date": "Wed, 18 Nov 2026 11:58:49 GMT",
+      "expires": "Wed, 18 Nov 2026 11:58:49 GMT",
+      "minimax-request-id": "01d22bbf69675bf2220b5559a88decac",
+      "pragma": "no-cache",
+      "server": "cloudflare",
+      "set-cookie": "__cf_bm=cIZnihLpZSPK8qurGHJEzcsVlJRItHynOduRgGYZYXE-1795003129.3825617-1.0.1.1-fhviOCMWoCNtsPiL743VsW_8nMYEJqOQzSDmouFGCmhRP5VNn2LfaFTK1K32Hx6X9Vusf2_O4oJ.Qr1fPhtdQ2Xj1dnNNWrffccvgCYuTkh8vefKjusbg_ZKZ1YqgCF7; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=gateway.ai.cloudflare.com; Expires=Wed, 18 Nov 2026 12:28:49 GMT",
+      "trace-id": "074cc5f9ae654643c2be3a5e5d6d82af",
+      "transfer-encoding": "chunked",
+      "vary": "Accept-Encoding",
+      "x-from": "ak",
+      "x-mm-request-id": "2038073520180704206_1795003129k768tj",
+      "x-session-id": "b545cbc1a0365a9f78b5f4663832a824"
+    },
+    "isStream": true,
+    "rawBody": "event: message_start\ndata: {\"p\": \"b81996d01\", \"type\":\"message_start\",\"message\":{\"id\":\"074cc5f9ae654643c2be3a5e5d6d82af\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"model\":\"MiniMax-M3\",\"stop_reason\":null,\"stop_sequence\":null,\"usage\":{\"input_tokens\":0,\"output_tokens\":0,\"service_tier\":\"standard\"},\"service_tier\":\"standard\"}}\n\nevent: ping\ndata: {\"p\": \"7d1a36131b\", \"type\":\"ping\"}\n\nevent: content_block_start\ndata: {\"p\": \"2513da45\", \"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}}\n\nevent: content_block_delta\ndata: {\"p\": \"fd8281b9ac854b5f\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"I'll\"}}\n\nevent: content_block_delta\ndata: {\"p\": \"218cb01798fd90\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" check\"}}\n\nevent: content_block_delta\ndata: {\"p\": \"326ad13ba3119b44\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" the gateway service\"}}\n\nevent: content_block_delta\ndata: {\"p\": \"780ce46\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" status.\"}}\n\nevent: content_block_stop\ndata: {\"p\": \"1b99eda1bdb4792\", \"type\":\"content_block_stop\",\"index\":0}\n\nevent: content_block_start\ndata: {\"p\": \"02a2d35338d4d4f4\", \"type\":\"content_block_start\",\"index\":1,\"content_block\":{\"type\":\"tool_use\",\"id\":\"call_01a1ee861fee724882c90ce6\",\"name\":\"lookup_status\",\"input\":{}}}\n\nevent: content_block_delta\ndata: {\"p\": \"3664f7c\", \"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"input_json_delta\",\"partial_json\":\"\"}}\n\nevent: content_block_delta\ndata: {\"p\": \"ce34a23c2ba308\", \"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"input_json_delta\",\"partial_json\":\"{\"}}\n\nevent: content_block_delta\ndata: {\"p\": \"6fa2e3118bc08\", \"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"input_json_delta\",\"partial_json\":\"\\\"service\\\":\\\"gateway\"}}\n\nevent: content_block_delta\ndata: {\"p\": \"8a72f14b\", \"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"input_json_delta\",\"partial_json\":\"\\\"\"}}\n\nevent: content_block_delta\ndata: {\"p\": \"c98a0\", \"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"input_json_delta\",\"partial_json\":\"}\"}}\n\nevent: content_block_stop\ndata: {\"p\": \"0d25533\", \"type\":\"content_block_stop\",\"index\":1}\n\nevent: message_delta\ndata: {\"p\": \"cfe90c25c95ac7\", \"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"tool_use\"},\"usage\":{\"input_tokens\":228,\"output_tokens\":34,\"cache_read_input_tokens\":199,\"service_tier\":\"standard\"}}\n\nevent: message_stop\ndata: {\"p\": \"c8623\", \"type\":\"message_stop\"}\n\n",
+    "sseFrames": [
+      {
+        "event": "message_start",
+        "data": "{\"p\": \"b81996d01\", \"type\":\"message_start\",\"message\":{\"id\":\"074cc5f9ae654643c2be3a5e5d6d82af\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"model\":\"MiniMax-M3\",\"stop_reason\":null,\"stop_sequence\":null,\"usage\":{\"input_tokens\":0,\"output_tokens\":0,\"service_tier\":\"standard\"},\"service_tier\":\"standard\"}}",
+        "parsed": {
+          "p": "b81996d01",
+          "type": "message_start",
+          "message": {
+            "id": "074cc5f9ae654643c2be3a5e5d6d82af",
+            "type": "message",
+            "role": "assistant",
+            "content": [],
+            "model": "MiniMax-M3",
+            "stop_reason": null,
+            "stop_sequence": null,
+            "usage": {
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "service_tier": "standard"
+            },
+            "service_tier": "standard"
+          }
+        }
+      },
+      {
+        "event": "ping",
+        "data": "{\"p\": \"7d1a36131b\", \"type\":\"ping\"}",
+        "parsed": {
+          "p": "7d1a36131b",
+          "type": "ping"
+        }
+      },
+      {
+        "event": "content_block_start",
+        "data": "{\"p\": \"2513da45\", \"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}}",
+        "parsed": {
+          "p": "2513da45",
+          "type": "content_block_start",
+          "index": 0,
+          "content_block": {
+            "type": "text",
+            "text": ""
+          }
+        }
+      },
+      {
+        "event": "content_block_delta",
+        "data": "{\"p\": \"fd8281b9ac854b5f\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"I'll\"}}",
+        "parsed": {
+          "p": "fd8281b9ac854b5f",
+          "type": "content_block_delta",
+          "index": 0,
+          "delta": {
+            "type": "text_delta",
+            "text": "I'll"
+          }
+        }
+      },
+      {
+        "event": "content_block_delta",
+        "data": "{\"p\": \"218cb01798fd90\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" check\"}}",
+        "parsed": {
+          "p": "218cb01798fd90",
+          "type": "content_block_delta",
+          "index": 0,
+          "delta": {
+            "type": "text_delta",
+            "text": " check"
+          }
+        }
+      },
+      {
+        "event": "content_block_delta",
+        "data": "{\"p\": \"326ad13ba3119b44\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" the gateway service\"}}",
+        "parsed": {
+          "p": "326ad13ba3119b44",
+          "type": "content_block_delta",
+          "index": 0,
+          "delta": {
+            "type": "text_delta",
+            "text": " the gateway service"
+          }
+        }
+      },
+      {
+        "event": "content_block_delta",
+        "data": "{\"p\": \"780ce46\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\" status.\"}}",
+        "parsed": {
+          "p": "780ce46",
+          "type": "content_block_delta",
+          "index": 0,
+          "delta": {
+            "type": "text_delta",
+            "text": " status."
+          }
+        }
+      },
+      {
+        "event": "content_block_stop",
+        "data": "{\"p\": \"1b99eda1bdb4792\", \"type\":\"content_block_stop\",\"index\":0}",
+        "parsed": {
+          "p": "1b99eda1bdb4792",
+          "type": "content_block_stop",
+          "index": 0
+        }
+      },
+      {
+        "event": "content_block_start",
+        "data": "{\"p\": \"02a2d35338d4d4f4\", \"type\":\"content_block_start\",\"index\":1,\"content_block\":{\"type\":\"tool_use\",\"id\":\"call_01a1ee861fee724882c90ce6\",\"name\":\"lookup_status\",\"input\":{}}}",
+        "parsed": {
+          "p": "02a2d35338d4d4f4",
+          "type": "content_block_start",
+          "index": 1,
+          "content_block": {
+            "type": "tool_use",
+            "id": "call_01a1ee861fee724882c90ce6",
+            "name": "lookup_status",
+            "input": {}
+          }
+        }
+      },
+      {
+        "event": "content_block_delta",
+        "data": "{\"p\": \"3664f7c\", \"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"input_json_delta\",\"partial_json\":\"\"}}",
+        "parsed": {
+          "p": "3664f7c",
+          "type": "content_block_delta",
+          "index": 1,
+          "delta": {
+            "type": "input_json_delta",
+            "partial_json": ""
+          }
+        }
+      },
+      {
+        "event": "content_block_delta",
+        "data": "{\"p\": \"ce34a23c2ba308\", \"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"input_json_delta\",\"partial_json\":\"{\"}}",
+        "parsed": {
+          "p": "ce34a23c2ba308",
+          "type": "content_block_delta",
+          "index": 1,
+          "delta": {
+            "type": "input_json_delta",
+            "partial_json": "{"
+          }
+        }
+      },
+      {
+        "event": "content_block_delta",
+        "data": "{\"p\": \"6fa2e3118bc08\", \"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"input_json_delta\",\"partial_json\":\"\\\"service\\\":\\\"gateway\"}}",
+        "parsed": {
+          "p": "6fa2e3118bc08",
+          "type": "content_block_delta",
+          "index": 1,
+          "delta": {
+            "type": "input_json_delta",
+            "partial_json": "\"service\":\"gateway"
+          }
+        }
+      },
+      {
+        "event": "content_block_delta",
+        "data": "{\"p\": \"8a72f14b\", \"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"input_json_delta\",\"partial_json\":\"\\\"\"}}",
+        "parsed": {
+          "p": "8a72f14b",
+          "type": "content_block_delta",
+          "index": 1,
+          "delta": {
+            "type": "input_json_delta",
+            "partial_json": "\""
+          }
+        }
+      },
+      {
+        "event": "content_block_delta",
+        "data": "{\"p\": \"c98a0\", \"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"input_json_delta\",\"partial_json\":\"}\"}}",
+        "parsed": {
+          "p": "c98a0",
+          "type": "content_block_delta",
+          "index": 1,
+          "delta": {
+            "type": "input_json_delta",
+            "partial_json": "}"
+          }
+        }
+      },
+      {
+        "event": "content_block_stop",
+        "data": "{\"p\": \"0d25533\", \"type\":\"content_block_stop\",\"index\":1}",
+        "parsed": {
+          "p": "0d25533",
+          "type": "content_block_stop",
+          "index": 1
+        }
+      },
+      {
+        "event": "message_delta",
+        "data": "{\"p\": \"cfe90c25c95ac7\", \"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"tool_use\"},\"usage\":{\"input_tokens\":228,\"output_tokens\":34,\"cache_read_input_tokens\":199,\"service_tier\":\"standard\"}}",
+        "parsed": {
+          "p": "cfe90c25c95ac7",
+          "type": "message_delta",
+          "delta": {
+            "stop_reason": "tool_use"
+          },
+          "usage": {
+            "input_tokens": 228,
+            "output_tokens": 34,
+            "cache_read_input_tokens": 199,
+            "service_tier": "standard"
+          }
+        }
+      },
+      {
+        "event": "message_stop",
+        "data": "{\"p\": \"c8623\", \"type\":\"message_stop\"}",
+        "parsed": {
+          "p": "c8623",
+          "type": "message_stop"
+        }
+      }
+    ]
+  },
+  "analysis": {
+    "extractorUsage": {
+      "inputTokens": 427,
+      "outputTokens": 34,
+      "cacheRead": 199,
+      "cacheWrite": 0
+    },
+    "estimatedCostCredits": 12114
+  }
+}

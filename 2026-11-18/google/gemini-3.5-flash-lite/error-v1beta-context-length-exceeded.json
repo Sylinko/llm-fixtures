@@ -1,0 +1,61 @@
+{
+  "capturedAt": "2026-11-18T12:42:30.543Z",
+  "source": "cloudflare-ai-gateway",
+  "provider": "google-ai-studio",
+  "modelId": "google/gemini-3.5-flash-lite",
+  "modelName": "gemini-3.5-flash-lite",
+  "schema": "google-v1beta",
+  "endpoint": "v1beta/models/gemini-3.5-flash-lite:generateContent",
+  "scenario": "error-v1beta-context-length-exceeded",
+  "request": {
+    "method": "POST",
+    "gatewayPath": "google-ai-studio/v1beta/models/gemini-3.5-flash-lite:generateContent",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "_omittedLargeRequestBodyBytes": 6800094,
+      "model": "gemini-3.5-flash-lite",
+      "endpoint": "v1beta/models/gemini-3.5-flash-lite:generateContent"
+    }
+  },
+  "response": {
+    "status": 400,
+    "ok": false,
+    "headers": {
+      "cf-aig-event-id": "01a1eeae-15f4-779b-a02e-f17f076dcb1f",
+      "cf-aig-log-id": "01a1eeae-15f4-779b-a02e-f17f076dcb1f",
+      "cf-aig-request-id": "01a1eeae-15f4-779b-a02e-f17f076dcb1f",
+      "cf-aig-step": "0",
+      "cf-aig-trace-id": "c15bf76849a44f03a7d83f95326d2a62",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5c70e284e50fb50-SJC",
+      "connection": "keep-alive",
+      "content-encoding": "gzip",
+      "content-length": "160",
+      "content-type": "application/json; charset=UTF-8",
+      "date": "Wed, 18 Nov 2026 12:42:30 GMT",
+      "server": "cloudflare",
+      "server-timing": "gfet4t7; dur=1365",
+      "set-cookie": "__cf_bm=AoBzDT56BRoJv2BE_qwuCaVblM83bxhDoshyc59gpSA-1795005748.5282772-1.0.1.1-PpD_hTwBcgmtwQgCFpYoqQ0k.KdECw9hOevDR1Q7Re4pTDxhXSbEImuq6f1pRJi0oteQZHbKRxL9MXgFrD_P5tR7TBUGVzhi985Wtp0MNkrBp539O1gSsS615fhLsPSG; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=gateway.ai.cloudflare.com; Expires=Wed, 18 Nov 2026 13:12:30 GMT",
+      "vary": "Origin, X-Origin, Referer, accept-encoding",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "x-gemini-service-tier": "standard",
+      "x-xss-protection": "0"
+    },
+    "isStream": false,
+    "rawBody": "{\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"The input token count exceeds the maximum number of tokens allowed (1048576).\",\n    \"status\": \"INVALID_ARGUMENT\"\n  }\n}\n",
+    "parsedJson": {
+      "error": {
+        "code": 400,
+        "message": "The input token count exceeds the maximum number of tokens allowed (1048576).",
+        "status": "INVALID_ARGUMENT"
+      }
+    }
+  },
+  "analysis": {
+    "extractorUsage": null,
+    "estimatedCostCredits": null
+  }
+}

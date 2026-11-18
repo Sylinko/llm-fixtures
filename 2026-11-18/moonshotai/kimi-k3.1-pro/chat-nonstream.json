@@ -1,0 +1,101 @@
+{
+  "capturedAt": "2026-11-18T11:54:57.212Z",
+  "source": "cloudflare-ai-gateway",
+  "provider": "custom-moonshotai",
+  "modelId": "moonshotai/kimi-k3.1-pro",
+  "modelName": "kimi-k3.1-pro",
+  "schema": "moonshot-chat-completions-v1",
+  "endpoint": "chat/completions",
+  "scenario": "chat-nonstream",
+  "request": {
+    "method": "POST",
+    "gatewayPath": "custom-moonshotai/chat/completions",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "model": "kimi-k3.1-pro",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Reply with the exact string OK-CHAT."
+        }
+      ],
+      "max_tokens": 64,
+      "stream": false
+    }
+  },
+  "response": {
+    "status": 200,
+    "ok": true,
+    "headers": {
+      "cf-aig-cache-status": "MISS",
+      "cf-aig-event-id": "01a1ee82-87e6-72d4-a757-213cb63a337d",
+      "cf-aig-log-id": "01a1ee82-87e6-72d4-a757-213cb63a337d",
+      "cf-aig-request-id": "01a1ee82-87e6-72d4-a757-213cb63a337d",
+      "cf-aig-step": "0",
+      "cf-aig-trace-id": "e55a1861f07e426a8e11640a040480fe",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5c6c8796e7e9814-SJC",
+      "connection": "keep-alive",
+      "content-encoding": "gzip",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Wed, 18 Nov 2026 11:54:57 GMT",
+      "msh-context-cache-token-boosted-nvme": "0",
+      "msh-gid": "enterprise-tier-2",
+      "msh-org-id": "org-7bada5239a8244469f5a0c637b5374ce",
+      "msh-project-id": "proj-d89d6ed2cec74fbc80668112c4bb2058",
+      "msh-request-id": "dec9ffc5-e346-11f1-9948-36984349e113",
+      "msh-trace-mode": "on",
+      "msh-uid": "d5n4o0m00qrbsene6d00",
+      "msh-usage-cache-write-tokens-1h": "0",
+      "msh-usage-cache-write-tokens-5m": "0",
+      "server": "cloudflare",
+      "set-cookie": "__cf_bm=mLbROxUhU1IRhpKEDnMgWe6FR1a_JcxqDiz8VtXt3Ws-1795002894.3095548-1.0.1.1-18qter.yGZjCUEm3e0AJLZeRqhygP5vaBfgpEwmTQKO1wnC23w7BP0XiW0Is5qKcRZ8s6yWgsa3wbbuAKqijgg3J5x3hfu6.D7cKDiT4KYuu6qe6PTGufoicmtuHPEND; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=gateway.ai.cloudflare.com; Expires=Wed, 18 Nov 2026 12:24:57 GMT",
+      "strict-transport-security": "max-age=31536000; includeSubDomains",
+      "transfer-encoding": "chunked",
+      "vary": "Origin",
+      "x-internal-adhoc-canary": "881669075",
+      "x-msh-trace-id": "964f668097afdb7df9f01dabdcd61c23"
+    },
+    "isStream": false,
+    "rawBody": "{\"id\":\"chatcmpl-6afd920f111faceaeff2ac72\",\"object\":\"chat.completion\",\"created\":1795002895,\"model\":\"kimi-k3.1-pro\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"OK-CHAT\",\"reasoning_content\":\"I need respond exact string OK-CHAT. I'll follow. I have long identity instructions, user simple instruction exact string. I should output only OK-CHAT no punctuation extra. Make sure response exactly.\"},\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":94,\"completion_tokens\":59,\"total_tokens\":153,\"completion_tokens_details\":{\"reasoning_tokens\":41},\"prompt_tokens_details\":{\"cache_write_tokens\":0}}}",
+    "parsedJson": {
+      "id": "chatcmpl-6afd920f111faceaeff2ac72",
+      "object": "chat.completion",
+      "created": 1795002895,
+      "model": "kimi-k3.1-pro",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "OK-CHAT",
+            "reasoning_content": "I need respond exact string OK-CHAT. I'll follow. I have long identity instructions, user simple instruction exact string. I should output only OK-CHAT no punctuation extra. Make sure response exactly."
+          },
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 94,
+        "completion_tokens": 59,
+        "total_tokens": 153,
+        "completion_tokens_details": {
+          "reasoning_tokens": 41
+        },
+        "prompt_tokens_details": {
+          "cache_write_tokens": 0
+        }
+      }
+    }
+  },
+  "analysis": {
+    "extractorUsage": {
+      "inputTokens": 94,
+      "outputTokens": 59,
+      "cacheRead": 0,
+      "cacheWrite": 0
+    },
+    "estimatedCostCredits": 77800
+  }
+}

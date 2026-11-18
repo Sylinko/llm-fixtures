@@ -1,0 +1,101 @@
+{
+  "capturedAt": "2026-11-18T12:01:45.381Z",
+  "source": "cloudflare-ai-gateway",
+  "provider": "google-ai-studio",
+  "modelId": "google/gemini-3.5-flash-lite",
+  "modelName": "gemini-3.5-flash-lite",
+  "schema": "google-interactions-v1",
+  "endpoint": "v1/interactions",
+  "scenario": "interactions-nonstream",
+  "request": {
+    "method": "POST",
+    "gatewayPath": "google-ai-studio/v1/interactions",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "model": "gemini-3.5-flash-lite",
+      "input": "Reply with the exact string OK-INT.",
+      "store": false,
+      "generation_config": {
+        "max_output_tokens": 64,
+        "thinking_level": "low"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "ok": true,
+    "headers": {
+      "cf-aig-cache-status": "MISS",
+      "cf-aig-event-id": "01a1ee88-ca0f-7236-b9d0-715f436a34d4",
+      "cf-aig-log-id": "01a1ee88-ca0f-7236-b9d0-715f436a34d4",
+      "cf-aig-request-id": "01a1ee88-ca0f-7236-b9d0-715f436a34d4",
+      "cf-aig-step": "0",
+      "cf-aig-trace-id": "1fb784830fba4c30839767ae796b5a8d",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5c6d27ceca3173b-SJC",
+      "connection": "keep-alive",
+      "content-encoding": "gzip",
+      "content-type": "application/json",
+      "date": "Wed, 18 Nov 2026 12:01:45 GMT",
+      "server": "cloudflare",
+      "server-timing": "gfet4t7; dur=966",
+      "set-cookie": "__cf_bm=VMLCrkTS78Qcfd2OF28pCgAu9G_jx_KqxiQMLrRpZ80-1795003304.4624026-1.0.1.1-aoR088mNJwD.ueE1STc99pUq5R6QcEv49zu3TWFGS_lucD3hQZ.NfGVW_beJMkHqZy6kc05vJQFRXltWQSsMPRZmwTt_nGygMMMBJCZFva8dyzuR_NN_AScqIHPFvoSB; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=gateway.ai.cloudflare.com; Expires=Wed, 18 Nov 2026 12:31:45 GMT",
+      "transfer-encoding": "chunked",
+      "vary": "Origin, X-Origin, Referer, accept-encoding",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "0"
+    },
+    "isStream": false,
+    "rawBody": "{\"status\":\"completed\",\"usage\":{\"total_tokens\":13,\"total_input_tokens\":10,\"input_tokens_by_modality\":[{\"modality\":\"text\",\"tokens\":10}],\"total_cached_tokens\":0,\"total_output_tokens\":3,\"total_tool_use_tokens\":0,\"total_thought_tokens\":0,\"initial_input_tokens\":10},\"created\":\"2026-11-18T12:01:45Z\",\"updated\":\"2026-11-18T12:01:45Z\",\"service_tier\":\"standard\",\"steps\":[{\"signature\":\"EokBCoYBAWkUfRO+J0WmHoKn1QKBhkDTL5QK8CYAhtQekeuCQtfSCagMO0lhhiIl7mGVLKfGuPyj9GvwED7RVrA/Q82WsKZsNhOFy4Zj3gDNQtlTdN5B8BZLpgF8n/tmV42nLaiTWXOqFulU2t1jmnU1eDb/8INjsk+YROFqGZV23EtWd976l2bWsFo=\",\"type\":\"thought\"},{\"content\":[{\"text\":\"OK-INT\",\"type\":\"text\"}],\"type\":\"model_output\"}],\"object\":\"interaction\",\"model\":\"gemini-3.5-flash-lite\"}",
+    "parsedJson": {
+      "status": "completed",
+      "usage": {
+        "total_tokens": 13,
+        "total_input_tokens": 10,
+        "input_tokens_by_modality": [
+          {
+            "modality": "text",
+            "tokens": 10
+          }
+        ],
+        "total_cached_tokens": 0,
+        "total_output_tokens": 3,
+        "total_tool_use_tokens": 0,
+        "total_thought_tokens": 0,
+        "initial_input_tokens": 10
+      },
+      "created": "2026-11-18T12:01:45Z",
+      "updated": "2026-11-18T12:01:45Z",
+      "service_tier": "standard",
+      "steps": [
+        {
+          "signature": "EokBCoYBAWkUfRO+J0WmHoKn1QKBhkDTL5QK8CYAhtQekeuCQtfSCagMO0lhhiIl7mGVLKfGuPyj9GvwED7RVrA/Q82WsKZsNhOFy4Zj3gDNQtlTdN5B8BZLpgF8n/tmV42nLaiTWXOqFulU2t1jmnU1eDb/8INjsk+YROFqGZV23EtWd976l2bWsFo=",
+          "type": "thought"
+        },
+        {
+          "content": [
+            {
+              "text": "OK-INT",
+              "type": "text"
+            }
+          ],
+          "type": "model_output"
+        }
+      ],
+      "object": "interaction",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  "analysis": {
+    "extractorUsage": {
+      "inputTokens": 10,
+      "outputTokens": 3,
+      "cacheRead": 0,
+      "cacheWrite": 0
+    },
+    "estimatedCostCredits": 1050
+  }
+}

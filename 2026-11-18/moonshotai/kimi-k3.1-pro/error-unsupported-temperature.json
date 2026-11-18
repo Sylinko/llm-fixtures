@@ -1,0 +1,73 @@
+{
+  "capturedAt": "2026-11-18T12:42:12.535Z",
+  "source": "cloudflare-ai-gateway",
+  "provider": "custom-moonshotai",
+  "modelId": "moonshotai/kimi-k3.1-pro",
+  "modelName": "kimi-k3.1-pro",
+  "schema": "moonshot-chat-completions-v1",
+  "endpoint": "chat/completions",
+  "scenario": "error-unsupported-temperature",
+  "request": {
+    "method": "POST",
+    "gatewayPath": "custom-moonshotai/chat/completions",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "model": "kimi-k3.1-pro",
+      "messages": [
+        {
+          "role": "user",
+          "content": "hi"
+        }
+      ],
+      "temperature": 0.5,
+      "max_tokens": 16,
+      "stream": true,
+      "stream_options": {
+        "include_usage": true
+      }
+    }
+  },
+  "response": {
+    "status": 400,
+    "ok": false,
+    "headers": {
+      "cf-aig-event-id": "01a1eead-d24b-73b9-aa14-4df2ec533a5b",
+      "cf-aig-log-id": "01a1eead-d24b-73b9-aa14-4df2ec533a5b",
+      "cf-aig-request-id": "01a1eead-d24b-73b9-aa14-4df2ec533a5b",
+      "cf-aig-step": "0",
+      "cf-aig-trace-id": "ba44a02d319b47c3be9639c74c8657a3",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5c70dbd4d94ae99-SJC",
+      "connection": "keep-alive",
+      "content-length": "108",
+      "content-type": "application/json; charset=utf-8",
+      "date": "Wed, 18 Nov 2026 12:42:11 GMT",
+      "msh-gid": "enterprise-tier-2",
+      "msh-org-id": "org-7bada5239a8244469f5a0c637b5374ce",
+      "msh-project-id": "proj-d89d6ed2cec74fbc80668112c4bb2058",
+      "msh-request-id": "797c4e3d-e34d-11f1-8b3a-00163e09d8c2",
+      "msh-trace-mode": "on",
+      "msh-uid": "d5n4o0m00qrbsene6d00",
+      "server": "cloudflare",
+      "set-cookie": "__cf_bm=iFcCytKdb7qjZGlB3sMEMDxEDNEtvErgF7yPTNO7l5U-1795005731.4017634-1.0.1.1-U.UtZrLXToqi3X23b0QqD_7cVxFRn2pbKEkUZpATXvKJicnxAATNTrmUDs6azCPbT0ifu0wpy.Q9N8UNvPNkz_aPFagaieS9X6ncLhVSCFkAGOehE3XG1bpwT7b8i5Wx; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=gateway.ai.cloudflare.com; Expires=Wed, 18 Nov 2026 13:12:11 GMT",
+      "strict-transport-security": "max-age=31536000; includeSubDomains",
+      "vary": "Origin",
+      "x-internal-adhoc-canary": "881669075",
+      "x-msh-trace-id": "bbb46adc4ff33215d4d547a4dbbd99ba"
+    },
+    "isStream": true,
+    "rawBody": "{\"error\":{\"message\":\"invalid temperature: only 1 is allowed for this model\",\"type\":\"invalid_request_error\"}}",
+    "parsedJson": {
+      "error": {
+        "message": "invalid temperature: only 1 is allowed for this model",
+        "type": "invalid_request_error"
+      }
+    }
+  },
+  "analysis": {
+    "extractorUsage": null,
+    "estimatedCostCredits": null
+  }
+}

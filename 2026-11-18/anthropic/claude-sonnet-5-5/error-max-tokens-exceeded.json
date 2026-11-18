@@ -1,0 +1,73 @@
+{
+  "capturedAt": "2026-11-18T12:41:54.018Z",
+  "source": "cloudflare-ai-gateway",
+  "provider": "anthropic",
+  "modelId": "anthropic/claude-sonnet-5-5",
+  "modelName": "claude-sonnet-5-5",
+  "schema": "messages-2023-06-01",
+  "endpoint": "v1/messages",
+  "scenario": "error-max-tokens-exceeded",
+  "request": {
+    "method": "POST",
+    "gatewayPath": "anthropic/v1/messages",
+    "headers": {
+      "content-type": "application/json",
+      "anthropic-version": "2023-06-01"
+    },
+    "body": {
+      "model": "claude-sonnet-5-5",
+      "messages": [
+        {
+          "role": "user",
+          "content": "hi"
+        }
+      ],
+      "max_tokens": 999999,
+      "stream": true
+    }
+  },
+  "response": {
+    "status": 400,
+    "ok": false,
+    "headers": {
+      "anthropic-organization-id": "8aa1cca3-c387-4ac8-a210-6964599c9aa1",
+      "anthropic-workspace-id": "wrkspc_011Zfy6oE9haCfXASrUzHLDo",
+      "cf-aig-event-id": "01a1eead-8d78-71dd-831d-ab018d68be41",
+      "cf-aig-log-id": "01a1eead-8d78-71dd-831d-ab018d68be41",
+      "cf-aig-request-id": "01a1eead-8d78-71dd-831d-ab018d68be41",
+      "cf-aig-step": "0",
+      "cf-aig-trace-id": "16301fe4c13f4b2dbacdb970f8fb20df",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5c70d4f2b648467-SJC",
+      "connection": "keep-alive",
+      "content-encoding": "br",
+      "content-security-policy": "default-src 'none'; frame-ancestors 'none'",
+      "content-type": "application/json",
+      "date": "Wed, 18 Nov 2026 12:41:54 GMT",
+      "request-id": "req_011ChAQorSeTVBGeeX5b5Nv7",
+      "server": "cloudflare",
+      "server-timing": "x-originResponse;dur=139",
+      "set-cookie": "__cf_bm=dzWfVa8pbmN9_MP8RUZfKvCnIcmvAMrMC0nLe0t67fo-1795005713.78309-1.0.1.1-yQElBXQWcK4Nj8N27TowYqiGkS2PCFqUiyP.lO.L1XNRMjkpA5CsX2HBWdm.NZbnfUg7B3ORJ.oqCq4PecxxWMznFMXJpZm.n8l6tLKLIpIExed1.DvqjdryOCTWUN4y; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=gateway.ai.cloudflare.com; Expires=Wed, 18 Nov 2026 13:11:54 GMT",
+      "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+      "traceresponse": "00-3d8f696acdba0dbacc84f9a1a5555900-a94e0ec030ff6376-01",
+      "transfer-encoding": "chunked",
+      "vary": "Accept-Encoding",
+      "x-robots-tag": "none",
+      "x-should-retry": "false"
+    },
+    "isStream": true,
+    "rawBody": "{\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"max_tokens: 999999 > 128000, which is the maximum allowed number of output tokens for claude-sonnet-5-5\"},\"request_id\":\"req_011ChAQorSeTVBGeeX5b5Nv7\"}",
+    "parsedJson": {
+      "type": "error",
+      "error": {
+        "type": "invalid_request_error",
+        "message": "max_tokens: 999999 > 128000, which is the maximum allowed number of output tokens for claude-sonnet-5-5"
+      },
+      "request_id": "req_011ChAQorSeTVBGeeX5b5Nv7"
+    }
+  },
+  "analysis": {
+    "extractorUsage": null,
+    "estimatedCostCredits": null
+  }
+}

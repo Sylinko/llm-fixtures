@@ -1,0 +1,233 @@
+{
+  "capturedAt": "2026-11-18T11:58:37.055Z",
+  "source": "cloudflare-ai-gateway",
+  "provider": "custom-minimax",
+  "modelId": "minimax/MiniMax-M3.1-Flash",
+  "modelName": "MiniMax-M3.1-Flash",
+  "schema": "messages-2023-06-01",
+  "endpoint": "anthropic/v1/messages",
+  "scenario": "messages-stream-tools-turn1",
+  "request": {
+    "method": "POST",
+    "gatewayPath": "custom-minimax/anthropic/v1/messages",
+    "headers": {
+      "content-type": "application/json",
+      "anthropic-version": "2023-06-01"
+    },
+    "body": {
+      "model": "MiniMax-M3.1-Flash",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Call lookup_status with service='gateway', then summarize."
+        }
+      ],
+      "tools": [
+        {
+          "name": "lookup_status",
+          "description": "Look up live service status by service code.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "service": {
+                "type": "string",
+                "description": "Service identifier such as billing or gateway"
+              }
+            },
+            "required": [
+              "service"
+            ]
+          }
+        }
+      ],
+      "tool_choice": {
+        "type": "tool",
+        "name": "lookup_status"
+      },
+      "max_tokens": 256,
+      "stream": true
+    }
+  },
+  "response": {
+    "status": 200,
+    "ok": true,
+    "headers": {
+      "access-control-allow-origin": "*",
+      "alb_receive_time": "1795003113.936",
+      "alb_request_id": "d5a2fc40fcedf9851c3921947e32a0cd8c3532f1",
+      "cache-control": "max-age=0, no-cache, no-store",
+      "cf-aig-cache-status": "MISS",
+      "cf-aig-event-id": "01a1ee85-e178-764c-a16d-4a74ed8da84f",
+      "cf-aig-log-id": "01a1ee85-e178-764c-a16d-4a74ed8da84f",
+      "cf-aig-request-id": "01a1ee85-e178-764c-a16d-4a74ed8da84f",
+      "cf-aig-step": "0",
+      "cf-aig-trace-id": "b051dabdff9f47e9a3b2d8b9b22d18be",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5c6cdd58e67ef28-SJC",
+      "connection": "keep-alive",
+      "content-type": "text/event-stream; charset=utf-8",
+      "date": "Wed, 18 Nov 2026 11:58:36 GMT",
+      "expires": "Wed, 18 Nov 2026 11:58:36 GMT",
+      "minimax-request-id": "e6f44a026489aa1ed6c598cc171f9f78",
+      "pragma": "no-cache",
+      "server": "cloudflare",
+      "set-cookie": "__cf_bm=vu35.maqTEKIyWKff8CfomR3pIV9Iu_WDpROgMjWRiE-1795003113.8467631-1.0.1.1-PCf0AkDqznLzB3gru1S3H8idQD46rat3Hv5IilFUW4SQ3b9OvW404togAsl94EgenIdAld2GnLM60cZHm3JKM_6OEfI7DbHAY9IqFcCDsjH.c7Gnv_xejxzPS04yn_ph; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=gateway.ai.cloudflare.com; Expires=Wed, 18 Nov 2026 12:28:36 GMT",
+      "trace-id": "074cc5e915d3ca395ae1145c0ad9b8ee",
+      "transfer-encoding": "chunked",
+      "vary": "Accept-Encoding",
+      "x-from": "ak",
+      "x-mm-request-id": "2038073520180704206_1795003113aayijt",
+      "x-session-id": "3fdabb5cdf4b3096f84a9d0bbdec3c81"
+    },
+    "isStream": true,
+    "rawBody": "event: message_start\ndata: {\"p\": \"2791b3ae82\", \"type\":\"message_start\",\"message\":{\"id\":\"074cc5e915d3ca395ae1145c0ad9b8ee\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"model\":\"MiniMax-M3.1-Flash\",\"stop_reason\":null,\"stop_sequence\":null,\"usage\":{\"input_tokens\":0,\"output_tokens\":0}}}\n\nevent: ping\ndata: {\"p\": \"4eebb0f88d308\", \"type\":\"ping\"}\n\nevent: content_block_start\ndata: {\"p\": \"5f9dba7\", \"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}}\n\nevent: content_block_delta\ndata: {\"p\": \"56805e\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"I'll check the gateway service status now.\"}}\n\nevent: content_block_stop\ndata: {\"p\": \"1\", \"type\":\"content_block_stop\",\"index\":0}\n\nevent: content_block_start\ndata: {\"p\": \"4efd0185\", \"type\":\"content_block_start\",\"index\":1,\"content_block\":{\"type\":\"tool_use\",\"id\":\"chatcmpl-tool-887486a9cd0d9290\",\"name\":\"lookup_status\",\"input\":{}}}\n\nevent: content_block_delta\ndata: {\"p\": \"cf3a\", \"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"input_json_delta\",\"partial_json\":\"\"}}\n\nevent: content_block_delta\ndata: {\"p\": \"298c75a\", \"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"input_json_delta\",\"partial_json\":\"{\\\"service\\\":\\\"gateway\\\"}\"}}\n\nevent: content_block_stop\ndata: {\"p\": \"e850\", \"type\":\"content_block_stop\",\"index\":1}\n\nevent: message_delta\ndata: {\"p\": \"28c26aa852\", \"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"tool_use\"},\"usage\":{\"input_tokens\":454,\"output_tokens\":36}}\n\nevent: message_stop\ndata: {\"p\": \"a2889f\", \"type\":\"message_stop\"}\n\n",
+    "sseFrames": [
+      {
+        "event": "message_start",
+        "data": "{\"p\": \"2791b3ae82\", \"type\":\"message_start\",\"message\":{\"id\":\"074cc5e915d3ca395ae1145c0ad9b8ee\",\"type\":\"message\",\"role\":\"assistant\",\"content\":[],\"model\":\"MiniMax-M3.1-Flash\",\"stop_reason\":null,\"stop_sequence\":null,\"usage\":{\"input_tokens\":0,\"output_tokens\":0}}}",
+        "parsed": {
+          "p": "2791b3ae82",
+          "type": "message_start",
+          "message": {
+            "id": "074cc5e915d3ca395ae1145c0ad9b8ee",
+            "type": "message",
+            "role": "assistant",
+            "content": [],
+            "model": "MiniMax-M3.1-Flash",
+            "stop_reason": null,
+            "stop_sequence": null,
+            "usage": {
+              "input_tokens": 0,
+              "output_tokens": 0
+            }
+          }
+        }
+      },
+      {
+        "event": "ping",
+        "data": "{\"p\": \"4eebb0f88d308\", \"type\":\"ping\"}",
+        "parsed": {
+          "p": "4eebb0f88d308",
+          "type": "ping"
+        }
+      },
+      {
+        "event": "content_block_start",
+        "data": "{\"p\": \"5f9dba7\", \"type\":\"content_block_start\",\"index\":0,\"content_block\":{\"type\":\"text\",\"text\":\"\"}}",
+        "parsed": {
+          "p": "5f9dba7",
+          "type": "content_block_start",
+          "index": 0,
+          "content_block": {
+            "type": "text",
+            "text": ""
+          }
+        }
+      },
+      {
+        "event": "content_block_delta",
+        "data": "{\"p\": \"56805e\", \"type\":\"content_block_delta\",\"index\":0,\"delta\":{\"type\":\"text_delta\",\"text\":\"I'll check the gateway service status now.\"}}",
+        "parsed": {
+          "p": "56805e",
+          "type": "content_block_delta",
+          "index": 0,
+          "delta": {
+            "type": "text_delta",
+            "text": "I'll check the gateway service status now."
+          }
+        }
+      },
+      {
+        "event": "content_block_stop",
+        "data": "{\"p\": \"1\", \"type\":\"content_block_stop\",\"index\":0}",
+        "parsed": {
+          "p": "1",
+          "type": "content_block_stop",
+          "index": 0
+        }
+      },
+      {
+        "event": "content_block_start",
+        "data": "{\"p\": \"4efd0185\", \"type\":\"content_block_start\",\"index\":1,\"content_block\":{\"type\":\"tool_use\",\"id\":\"chatcmpl-tool-887486a9cd0d9290\",\"name\":\"lookup_status\",\"input\":{}}}",
+        "parsed": {
+          "p": "4efd0185",
+          "type": "content_block_start",
+          "index": 1,
+          "content_block": {
+            "type": "tool_use",
+            "id": "chatcmpl-tool-887486a9cd0d9290",
+            "name": "lookup_status",
+            "input": {}
+          }
+        }
+      },
+      {
+        "event": "content_block_delta",
+        "data": "{\"p\": \"cf3a\", \"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"input_json_delta\",\"partial_json\":\"\"}}",
+        "parsed": {
+          "p": "cf3a",
+          "type": "content_block_delta",
+          "index": 1,
+          "delta": {
+            "type": "input_json_delta",
+            "partial_json": ""
+          }
+        }
+      },
+      {
+        "event": "content_block_delta",
+        "data": "{\"p\": \"298c75a\", \"type\":\"content_block_delta\",\"index\":1,\"delta\":{\"type\":\"input_json_delta\",\"partial_json\":\"{\\\"service\\\":\\\"gateway\\\"}\"}}",
+        "parsed": {
+          "p": "298c75a",
+          "type": "content_block_delta",
+          "index": 1,
+          "delta": {
+            "type": "input_json_delta",
+            "partial_json": "{\"service\":\"gateway\"}"
+          }
+        }
+      },
+      {
+        "event": "content_block_stop",
+        "data": "{\"p\": \"e850\", \"type\":\"content_block_stop\",\"index\":1}",
+        "parsed": {
+          "p": "e850",
+          "type": "content_block_stop",
+          "index": 1
+        }
+      },
+      {
+        "event": "message_delta",
+        "data": "{\"p\": \"28c26aa852\", \"type\":\"message_delta\",\"delta\":{\"stop_reason\":\"tool_use\"},\"usage\":{\"input_tokens\":454,\"output_tokens\":36}}",
+        "parsed": {
+          "p": "28c26aa852",
+          "type": "message_delta",
+          "delta": {
+            "stop_reason": "tool_use"
+          },
+          "usage": {
+            "input_tokens": 454,
+            "output_tokens": 36
+          }
+        }
+      },
+      {
+        "event": "message_stop",
+        "data": "{\"p\": \"a2889f\", \"type\":\"message_stop\"}",
+        "parsed": {
+          "p": "a2889f",
+          "type": "message_stop"
+        }
+      }
+    ]
+  },
+  "analysis": {
+    "extractorUsage": {
+      "inputTokens": 454,
+      "outputTokens": 36,
+      "cacheRead": 0,
+      "cacheWrite": 0
+    },
+    "estimatedCostCredits": 8970
+  }
+}

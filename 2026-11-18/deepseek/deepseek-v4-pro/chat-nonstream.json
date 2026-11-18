@@ -1,0 +1,102 @@
+{
+  "capturedAt": "2026-11-18T11:58:21.017Z",
+  "source": "cloudflare-ai-gateway",
+  "provider": "deepseek",
+  "modelId": "deepseek/deepseek-v4-pro",
+  "modelName": "deepseek-v4-pro",
+  "schema": "deepseek-2025-12-01",
+  "endpoint": "chat/completions",
+  "scenario": "chat-nonstream",
+  "request": {
+    "method": "POST",
+    "gatewayPath": "deepseek/chat/completions",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "model": "deepseek-v4-pro",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Reply with the exact string OK-CHAT."
+        }
+      ],
+      "max_tokens": 64,
+      "stream": false,
+      "user_id": "live-capture-user"
+    }
+  },
+  "response": {
+    "status": 200,
+    "ok": true,
+    "headers": {
+      "access-control-allow-credentials": "true",
+      "cf-aig-cache-status": "MISS",
+      "cf-aig-event-id": "01a1ee85-a91a-7657-bfa4-d9c8cd3976a1",
+      "cf-aig-log-id": "01a1ee85-a91a-7657-bfa4-d9c8cd3976a1",
+      "cf-aig-request-id": "01a1ee85-a91a-7657-bfa4-d9c8cd3976a1",
+      "cf-aig-step": "0",
+      "cf-aig-trace-id": "0336bf19881e4f4b816dfc6449c6612d",
+      "cf-cache-status": "DYNAMIC",
+      "cf-ray": "a5c6cd7b3bf2ef28-SJC",
+      "connection": "keep-alive",
+      "content-encoding": "br",
+      "content-type": "application/json",
+      "date": "Wed, 18 Nov 2026 11:58:21 GMT",
+      "server": "cloudflare",
+      "set-cookie": "__cf_bm=Q5zThIu_GQacvbSsMFgR9U4ih.7q_eOBp6UkrEJ7HmU-1795003099.3942916-1.0.1.1-5hcnXzlt4JK86KYAYibqlEKZx1IJAvDQKJUKClk8.VWm4.fDXMZViUXPjH2HErjjxOLW1bRahTKPzOSPqcu3QJTFoiUDeKUh3M5ZwM08fSyWq2AEUAwvQtXhbyXOMAXi; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=gateway.ai.cloudflare.com; Expires=Wed, 18 Nov 2026 12:28:21 GMT",
+      "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+      "transfer-encoding": "chunked",
+      "vary": "accept-encoding,origin, access-control-request-method, access-control-request-headers",
+      "via": "1.1 f1f1587942b30c5e9c37a190f21c30ba.cloudfront.net (CloudFront)",
+      "x-amz-cf-id": "5laKFJ0TOjMz7AvI4cJ8k1SFfrgDK6YH1wigz0OvNhBtpf8KMD9Heg==",
+      "x-amz-cf-pop": "SFO53-P1",
+      "x-cache": "Miss from cloudfront",
+      "x-content-type-options": "nosniff",
+      "x-ds-trace-id": "e801396c5114eee9ec493dceb55e5d69"
+    },
+    "isStream": false,
+    "rawBody": "{\"id\":\"2091a294-41e7-46f5-aa5e-979c606298c4\",\"object\":\"chat.completion\",\"created\":1795003099,\"model\":\"deepseek-v4-pro\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"OK-CHAT\",\"reasoning_content\":\"We need answer exact string OK-CHAT. User asks \\\"Reply with the exact string OK-CHAT.\\\" Need comply. Just output OK-CHAT.\"},\"logprobs\":null,\"finish_reason\":\"stop\"}],\"usage\":{\"prompt_tokens\":92,\"completion_tokens\":34,\"total_tokens\":126,\"prompt_tokens_details\":{\"cached_tokens\":0},\"completion_tokens_details\":{\"reasoning_tokens\":30},\"prompt_cache_hit_tokens\":0,\"prompt_cache_miss_tokens\":92},\"system_fingerprint\":\"d400d062347a13495558bb956f2a0a0c\"}",
+    "parsedJson": {
+      "id": "2091a294-41e7-46f5-aa5e-979c606298c4",
+      "object": "chat.completion",
+      "created": 1795003099,
+      "model": "deepseek-v4-pro",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "OK-CHAT",
+            "reasoning_content": "We need answer exact string OK-CHAT. User asks \"Reply with the exact string OK-CHAT.\" Need comply. Just output OK-CHAT."
+          },
+          "logprobs": null,
+          "finish_reason": "stop"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 92,
+        "completion_tokens": 34,
+        "total_tokens": 126,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 30
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 92
+      },
+      "system_fingerprint": "d400d062347a13495558bb956f2a0a0c"
+    }
+  },
+  "analysis": {
+    "extractorUsage": {
+      "inputTokens": 92,
+      "outputTokens": 34,
+      "cacheRead": 0,
+      "cacheWrite": 0
+    },
+    "estimatedCostCredits": 12804
+  }
+}
